@@ -5,6 +5,7 @@ import { BsSearch } from "react-icons/bs";
 import { BiUser } from 'react-icons/bi';
 import { RiArrowDownSLine } from 'react-icons/ri';  // Import the arrow icon
 import { TiShoppingCart } from 'react-icons/ti';
+import Link from 'next/link';
 
 const HeaderMain = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -35,7 +36,10 @@ const HeaderMain = () => {
     <div className="border-b border-gray-200 py-6">
       <div className="container sm:flex justify-between items-center">
         <div className="font-bold text-4xl text-center pb-4 pl-10 sm:pb-0 text-emerald-600">
+          <Link href="/">
           ShopSmart
+          </Link>
+          
         </div>
 
         <div className="w-full sm:w-[300px] md:w-[50%] relative">
