@@ -1,6 +1,6 @@
 // pages/index.js
-import HeaderMain from '@/components/product_details/HeaderMain';
-import NavBar from '@/components/product_details/NavBar';
+import HeaderMain from '@/components/HeaderMain';
+import NavBar from '@/components/NavBar';
 import React from 'react';
 
 const MainPage = () => {
