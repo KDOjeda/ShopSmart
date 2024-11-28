@@ -6,11 +6,37 @@
   position: relative;
   padding: 8px 16px;
   text-decoration: none;
-  color: inherit; /* Inherit color from parent */
+  color: inherit; 
   transition: background-color 0.3s ease, padding 0.3s ease;
 }
 
 .navbar_link:hover {
-  background-color: #34d399; /* Emerald-300 background color */
-  padding: 8px 16px; /* Adjust padding if necessary */
+  background-color: #34d399;
+  padding: 8px 16px;
+  color: white;
 }
+
+/* Container for Description */
+.container-description {
+  background:white;
+  border-radius: 12px;
+  padding: 30px;
+  padding-bottom: 200px;
+  box-shadow: 0 4px 10px #34d399;
+  color: black;
+  max-width: 600px;
+  text-align: justify;
+}
+
+.container-description h1 {
+  font-size: 2rem; 
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #07a068;
+}
+
+.container-description p {
+  font-size: 1rem; 
+  line-height: 1.6; 
+}
+
