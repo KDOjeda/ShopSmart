@@ -1,8 +1,19 @@
+import HeaderMain from '@/components/product_details/HeaderMain'
+import NavBar from '@/components/product_details/NavBar'
 import React from 'react'
 
 function ProductList() {
   return (
-    <div>ProductList</div>
+    <main>
+
+    <HeaderMain/>
+    <NavBar/>
+
+
+
+      <div>ProductList</div>
+
+  </main>
   )
 }
 
