@@ -1,8 +1,26 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  /* insert image domain here */
   images:{
-    domains: ["contents.mediadecathlon.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "contents.mediadecathlon.com"
+      },
+      {
+        protocol: "https",
+        hostname: "contents.mediadecathlon.com"
+      },
+      {
+        protocol: "https",
+        hostname: "contents.mediadecathlon.com"
+      },
+      {
+        protocol: "https",
+        hostname: "contents.mediadecathlon.com"
+      },
+    ],
   }
 };
 
