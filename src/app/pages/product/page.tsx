@@ -1,6 +1,5 @@
 import HeaderMain from '@/components/HeaderMain'
 import NavBar from '@/components/NavBar'
-import ProductImages from '@/components/ProductImages'
 import Link from 'next/link'
 import React from 'react'
 import Image from 'next/image'
