@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import NavBar from "@/components/NavBar";
+import Footer from "@/components/Footer";
 // import HeaderMain from "@/components/product_details/HeaderMain";
 // import NavBar from "@/components/product_details/NavBar";
 // import ProductDetail from "@/components/product_details/ProductDetail";
@@ -31,9 +33,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {/* <HeaderMain />
-        <NavBar/> */}
-        {children}
+        <NavBar/>
+        <main className="flex-1">{children}</main>
+        <Footer/>
       </body>
     </html>
   );
