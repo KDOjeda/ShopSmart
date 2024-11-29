@@ -1,15 +1,13 @@
-import HeaderMain from '@/components/HeaderMain'
-import NavBar from '@/components/NavBar'
 import React from 'react'
 
 export default function shoppe() {
   return (
-<main>
+<main className='mt-10 flex flex-col min-h-screen'>
 
 
 
 
-  <div>letzzgo my smoker</div>
+  <div className='text-center text-2xl font-bold'>letzzgo my smoker</div>
 
 </main>
   )

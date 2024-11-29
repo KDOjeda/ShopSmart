@@ -20,7 +20,7 @@ const NavBar = () => {
           <Link href="/" className="flex items-center">
             <div className="font-bold text-4xl text-emerald-600 tracking-wide">ShopSmart</div>
           </Link>
-          <div className="hidden xl:flex gap-4 font-semibold">
+          <div className="hidden xl:flex gap-3 font-semibold text-base">
             <Link className="navbar_link relative" href="/">HOME</Link>
             <Link className="navbar_link relative" href="/pages/product">SHOP</Link>
             <Link className="navbar_link relative" href="/pages/syd">MY PURCHASES</Link> 
