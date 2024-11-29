@@ -6,8 +6,6 @@ export default function shoppe() {
   return (
 <main>
 
-<HeaderMain/>
-<NavBar/>
 
 
 

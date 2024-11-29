@@ -9,11 +9,6 @@ function ProductList() {
   return (
     <main>
 
-    <HeaderMain/>
-    <NavBar/>
-
-
-
       <div>ProductList</div>
       {/* for testing linking product details lang ni */}
       <div className="mt-10 flex gap-x-8 gap-y-16 justify-between flex-wrap">
