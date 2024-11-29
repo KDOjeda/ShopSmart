@@ -4,9 +4,9 @@ import Image from 'next/image'
 
 function ProductList() {
   return (
-    <main className='m-20 flex flex-col min-h-screen'>
+    <main className='m-10 flex flex-col min-h-screen'>
 
-      <div className='text-center text-2xl font-bold'>Product List</div>
+      <div className='text-center text-3xl font-bold'>Product List</div>
       {/* for testing linking product details lang ni */}
       <div className="mt-10 flex gap-x-8 gap-y-16 justify-between flex-wrap">
         <Link href="/pages/product_details" className='w-full flex flex-col gap-4 sm:w-[20%]'>
