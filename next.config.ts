@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "contents.mediadecathlon.com"
+        hostname: "img.freepik.com/premium-photo"
       },
       {
         protocol: "https",
