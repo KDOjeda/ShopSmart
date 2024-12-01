@@ -10,15 +10,15 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "contents.mediadecathlon.com"
+        hostname: "flowbite.s3.amazonaws.com"
       },
       {
         protocol: "https",
-        hostname: "contents.mediadecathlon.com"
+        hostname: "www.w3.org"
       },
       {
         protocol: "https",
-        hostname: "contents.mediadecathlon.com"
+        hostname: "decathlon.ae"
       },
     ],
   }

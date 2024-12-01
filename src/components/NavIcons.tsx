@@ -36,7 +36,7 @@ const NavIcons = () => {
     <div className='flex items-center gap-4 xl:gap-6 relative text-[25px]' ref={closeIconModal}>
       <BiUser className="cursor-pointer" onClick={handleProfile}/>
       {isProfileOpen && (
-        <div className='bg-white absolute p-4 rounded-md top-12 left-0 text-sm shadow-[0_3px_10px_rgb(0,0,0,0.2)]'>
+        <div className='bg-white absolute p-4 rounded-md top-12 left-0 text-sm shadow-[0_3px_10px_rgb(0,0,0,0.2)] z-10'>
             <Link href="" className="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-base">Profile</Link>
             <div className='mt-2 cursor-pointer block px-4 py-2 text-gray-700 hover:bg-gray-100 text-base'>Settings</div>
             <div className='mt-2 cursor-pointer block px-4 py-2 text-gray-700 hover:bg-gray-100 text-base'>Logout</div>
@@ -44,7 +44,7 @@ const NavIcons = () => {
       )}
       <div className="relative cursor-pointer" ref={closeIconModal}>
         <TiShoppingCart onClick={() => setIsCartOpen((prev) => !prev)} />
-        <div className="bg-red-600 rounded-full absolute top-0 right-0 w-[16px] h-[16px] text-[11px] text-white grid place-items-center translate-x-1 -translate-y-1">0</div>
+        <div className="bg-white rounded-full absolute top-0 right-0 w-[16px] h-[16px] text-[11px] text-emerald-600 font-extrabold grid place-items-center translate-x-1 -translate-y-1">0</div>
         {isCartOpen && <ShowCart/>}
         </div>  
     </div>

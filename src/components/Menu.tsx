@@ -16,7 +16,7 @@ const Menu = () => {
                 onClick={()=>setOpen((prev) => !prev)}
             />{
                 open && (
-                    <div className="absolute bg-emerald-600 text-white left-0 top-20 w-full h-[calc(100vh-80px)] flex flex-col items-center justify-center gap-8 text-xl z-10">
+                    <div className="absolute bg-white text-black left-0 top-20 w-full h-[calc(100vh-80px)] flex flex-col items-center justify-center gap-8 text-xl z-10">
                         <Link className="navbar_link relative" href="/">HOME</Link>
                         <Link className="navbar_link relative" href="/pages/product">SHOP</Link>
                         <Link className="navbar_link relative" href="/pages/syd">MY PURCHASES</Link> 

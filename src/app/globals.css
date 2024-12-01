@@ -8,12 +8,14 @@
   text-decoration: none;
   color: inherit; 
   transition: background-color 0.3s ease, padding 0.3s ease;
+  border-radius: 5px;
 }
 
 .navbar_link:hover {
-  background-color: #34d399;
+  background-color: white;
   padding: 8px 16px;
-  color: white;
+  color: rgb(22 163 74);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, .7);
 }
 
 /* Container for Description */
@@ -39,4 +41,9 @@
   font-size: 1rem; 
   line-height: 1.6; 
 }
+
+.text-shadow-logo {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+}
+
 
