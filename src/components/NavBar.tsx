@@ -14,8 +14,10 @@ const NavBar = () => {
         </Link>
         <Menu/>
       </div>
+
+
       {/* DESKTOP */}
-      <div className="hidden md:flex items-center justify-between gap-8 h-full">
+      <div className="hidden md:flex items-center justify-between gap-8 h-full bg-blue-500">
         <div className="w-1/3 xl:w-1/2 flex items-center gap-12">
           <Link href="/" className="flex items-center">
             <div className="font-bold text-4xl text-emerald-600 tracking-wide">ShopSmart</div>
