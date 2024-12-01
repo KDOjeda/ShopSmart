@@ -26,6 +26,11 @@ const nextConfig: NextConfig = {
         hostname: "decathlon.ae"
       },
 
+      {
+        protocol: "https",
+        hostname: "contents.mediadecathlon.com"
+      }
+
       
     ],
   }

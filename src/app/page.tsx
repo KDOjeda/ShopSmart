@@ -54,11 +54,7 @@ const MainPage = () => {
 
   return (
     <>
-      <main className='flex flex-col min-h-screen'>
-        <div className='mt-10 justify-between items-center text-2xl text-center'>
-          <h1 className='font-bold text-3xl'>Welcome to the Main Page</h1>
-          <p>This is the main page of the Next.js app.</p>
-        </div>
+      <main className='flex flex-col'>
         <section className="bg-gray-800 text-white text-center py-10">
           <h1 className="text-4xl font-bold mb-2">Welcome to Our Sports Store!</h1>
           <p className="text-lg">Your one-stop destination for all your sporting needs.</p>
@@ -68,7 +64,7 @@ const MainPage = () => {
         <section className="bg-green-500 text-white text-center py-6">
           <h2 className="text-3xl font-semibold">Equip Your Passion, Achieve Your Goals!</h2>
         </section>
-        <main className="flex min-h-screen bg-gray-100 p-6 relative overflow-hidden">
+        <main className="flex min-h-screen bg-gray-100 relative overflow-hidden">
 
         {/* Left Section - Categories */}
         <section className="w-1/4 bg-white p-6 shadow-md rounded-lg mr-6">
