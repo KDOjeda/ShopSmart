@@ -6,7 +6,11 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "contents.mediadecathlon.com"
+        hostname: "m.media-amazon.com"
+      },
+      {
+        protocol: "https",
+        hostname: "img.freepik.com/premium-photo"
       },
       {
         protocol: "https",
@@ -16,10 +20,13 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "www.w3.org"
       },
+
       {
         protocol: "https",
         hostname: "decathlon.ae"
       },
+
+      
     ],
   }
 };

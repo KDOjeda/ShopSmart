@@ -14,7 +14,13 @@ module.exports = {
       },
     },
   },
+<<<<<<< HEAD
   plugins: [
     require('flowbite/plugin')
   ],
+=======
+  plugins: [require('daisyui'),],
+>>>>>>> 737bad9cd4c713c34de5f680b350c7bfbc470415
 } satisfies Config;
+
+
