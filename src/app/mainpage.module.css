@@ -1,0 +1,154 @@
+/* MainPage.module.css */
+
+/* Custom fade-in animation */
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  
+    .animateFadeIn {
+      animation: fadeIn 1s ease-in forwards;
+    }
+  }
+  
+  /* Category container with vertical gap */
+  .categoryContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  /* Hover effect for category section */
+  .categorySection {
+    transform: scale(1);
+    transition: transform 0.3s;
+  }
+  
+  
+  /* Product card styling */
+  .productCard {
+    min-width: 160px;
+    flex-shrink: 0;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  
+  /* Styling for product images */
+  .productImage {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+  }
+  
+  .categoryContainer {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .categorySection {
+    margin-bottom: 24px;
+  }
+  
+  .productImage {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .animateFadeIn {
+    animation: fadeIn 0.5s ease-in;
+  }
+  
+  .apparelGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 16px;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }  }
+
+    .productGrid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+
+      .categoryCard {
+        background-color: #fff;
+        padding: 16px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 16px;
+      }
+      
+      .productCard {
+        background-color: #fff;
+        padding: 16px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+      
+      .productCard:hover {
+        transform: translateY(-8px);
+      }
+      
+      .productImage {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        object-fit: cover;
+      }
+      
+      .productGrid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+
+      /* Add styles for the new sections */
+
+.welcomeSection {
+    text-align: center;
+    padding: 40px;
+    background-color: #f4f4f4;
+    margin-bottom: 20px;
+  }
+  
+  .welcomeSection h1 {
+    font-size: 36px;
+    color: #333;
+  }
+  
+  .welcomeSection p {
+    font-size: 18px;
+    color: #666;
+  }
+  
+  .punchlineSection {
+    text-align: center;
+    padding: 20px;
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .punchlineSection h2 {
+    font-size: 28px;
+    margin: 0;
+  }
+  
+      
+    
