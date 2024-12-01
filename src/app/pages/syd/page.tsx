@@ -1,10 +1,13 @@
-import React from 'react';
+// Import React from 'react';
 import styles from '../syd/main.module.css';
 import Image from 'next/image';
 import { FaTruck } from "react-icons/fa";
 import { FaCheckCircle } from "react-icons/fa";
 import { TbTruckDelivery } from "react-icons/tb";
 import { FaBox } from "react-icons/fa";
+import { FaStar } from 'react-icons/fa';
+import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
+
 
 const OrderTracking = () => {
   const orders = [
@@ -14,6 +17,7 @@ const OrderTracking = () => {
       estimatedDelivery: 'Dec 5, 2024',
       imageUrl: '/images/jersey.png',
       description: 'This is a description for order 12345',
+      rating: 4, 
     },
     {
       id: '67890',
@@ -21,6 +25,7 @@ const OrderTracking = () => {
       estimatedDelivery: 'Dec 7, 2024',
       imageUrl: '/images/jacket.png',
       description: 'This is a description for order 67890',
+      rating: 5,
     },
     {
       id: '11223',
@@ -28,9 +33,17 @@ const OrderTracking = () => {
       estimatedDelivery: 'Dec 1, 2024',
       imageUrl: '/images/shoes.png',
       description: 'This is a description for order 11223',
+      rating: 3,
+    },
+    {
+      id: '44556',
+      status: 'Processing',
+      estimatedDelivery: 'Dec 10, 2024',
+      imageUrl: '/images/tshirt.png',
+      description: 'This is a description for order 44556',
+      rating: null, // No rating yet
     },
   ];
-  //tgjhblkjb
 
   return (
     <div className={styles.container}>
@@ -69,6 +82,19 @@ const OrderTracking = () => {
                   <p className={styles.estimatedDelivery}>
                     Estimated Delivery: {order.estimatedDelivery}
                   </p>
+                  <div className={styles.rating}>
+                    Rating: 
+                    {order.rating !== null ? (
+                      Array.from({ length: 5 }, (_, i) => (
+                        <FaStar 
+                          key={i} 
+                          className={i < order.rating ? styles.filledStar : styles.emptyStar} 
+                        />
+                      ))
+                    ) : (
+                      "Not Rated Yet"
+                    )}
+                  </div>
                 </div>
               </div>
               <div className={styles.flipCardBack}>
@@ -78,6 +104,15 @@ const OrderTracking = () => {
             </div>
           </div>
         ))}
+      </div>
+
+      <div className={styles.socials}>
+        <h3>Follow us on Social Media:</h3>
+        <div className={styles.socialIcons}>
+          <a href="#" target="_blank" rel="noopener noreferrer"><FaFacebook className={styles.socialIcon} /></a>
+          <a href="#" target="_blank" rel="noopener noreferrer"><FaTwitter className={styles.socialIcon} /></a>
+          <a href="#" target="_blank" rel="noopener noreferrer"><FaInstagram className={styles.socialIcon} /></a>
+        </div>
       </div>
     </div>
   );
