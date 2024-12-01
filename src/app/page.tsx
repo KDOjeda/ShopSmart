@@ -1,14 +1,8 @@
-<<<<<<< HEAD
-// pages/index.js
-import React from 'react';
-import Image from 'next/image'
-import ImageSlider from '@/components/ImageSlider';
-=======
+
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import styles from "./MainPage.module.css";
->>>>>>> 737bad9cd4c713c34de5f680b350c7bfbc470415
 //asdfghj
 const MainPage = () => {
   const products = [
@@ -59,52 +53,62 @@ const MainPage = () => {
   const currentProduct = products[currentProductIndex] || {};
 
   return (
-<<<<<<< HEAD
-    <main className='flex flex-col min-h-screen'>
-      <div className='mt-10 justify-between items-center text-2xl text-center'>
-        <h1 className='font-bold text-3xl'>Welcome to the Main Page</h1>
-        <p>This is the main page of the Next.js app.</p>
-      </div>
-=======
-
     <>
-    <section className="bg-gray-800 text-white text-center py-10">
-        <h1 className="text-4xl font-bold mb-2">Welcome to Our Sports Store!</h1>
-        <p className="text-lg">Your one-stop destination for all your sporting needs.</p>
-      </section>
+      <main className='flex flex-col min-h-screen'>
+        <div className='mt-10 justify-between items-center text-2xl text-center'>
+          <h1 className='font-bold text-3xl'>Welcome to the Main Page</h1>
+          <p>This is the main page of the Next.js app.</p>
+        </div>
+        <section className="bg-gray-800 text-white text-center py-10">
+          <h1 className="text-4xl font-bold mb-2">Welcome to Our Sports Store!</h1>
+          <p className="text-lg">Your one-stop destination for all your sporting needs.</p>
+        </section>
+      </main>
+        {/* Punchline Section */}
+        <section className="bg-green-500 text-white text-center py-6">
+          <h2 className="text-3xl font-semibold">Equip Your Passion, Achieve Your Goals!</h2>
+        </section>
+        <main className="flex min-h-screen bg-gray-100 p-6 relative overflow-hidden">
 
-      {/* Punchline Section */}
-      <section className="bg-green-500 text-white text-center py-6">
-        <h2 className="text-3xl font-semibold">Equip Your Passion, Achieve Your Goals!</h2>
-      </section>
-    <main className="flex min-h-screen bg-gray-100 p-6 relative overflow-hidden">
+        {/* Left Section - Categories */}
+        <section className="w-1/4 bg-white p-6 shadow-md rounded-lg mr-6">
+          <h2 className="text-2xl font-bold mb-4">Product Categories</h2>
+          <ul>
+            {categories.map((category, index) => (
+              <li key={index} className="text-gray-700 py-2">
+                <Link href={`/pages/${category.replace(/\s+/g, '')}`} className="text-blue-500 hover:text-blue-700">
+                  {category}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
 
-      {/* Left Section - Categories */}
-      <section className="w-1/4 bg-white p-6 shadow-md rounded-lg mr-6">
-        <h2 className="text-2xl font-bold mb-4">Product Categories</h2>
-        <ul>
-          {categories.map((category, index) => (
-            <li key={index} className="text-gray-700 py-2">
-              <Link href={`/pages/${category.replace(/\s+/g, '')}`} className="text-blue-500 hover:text-blue-700">
-                {category}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      {/* Middle Section - Popular Categories */}
-      <section className="flex-1 mx-4 bg-white p-6 shadow-md rounded-lg">
-        <h2 className="text-2xl font-bold mb-4">Popular Categories</h2>
-        <div className={styles.categoryContainer}>
-          {categories.map((category, index) => (
-            <div key={index} className={styles.categoryCard}>
-              <h3 className="text-xl font-semibold mb-4">{category}</h3>
-              <div>
-                {category === "Apparel" || category === "Footwear" || category === "Accessories" 
-                || category === "Wearables" || category === "Equipment" || category === "Bags & Storage" || category === "Facilities & Setup"? (
-                  <div className={styles.productGrid}>
-                    {products.filter(product => product.category === category).map((product) => (
+        {/* Middle Section - Popular Categories */}
+        <section className="flex-1 mx-4 bg-white p-6 shadow-md rounded-lg">
+          <h2 className="text-2xl font-bold mb-4">Popular Categories</h2>
+          <div className={styles.categoryContainer}>
+            {categories.map((category, index) => (
+              <div key={index} className={styles.categoryCard}>
+                <h3 className="text-xl font-semibold mb-4">{category}</h3>
+                <div>
+                  {category === "Apparel" || category === "Footwear" || category === "Accessories" 
+                  || category === "Wearables" || category === "Equipment" || category === "Bags & Storage" || category === "Facilities & Setup"? (
+                    <div className={styles.productGrid}>
+                      {products.filter(product => product.category === category).map((product) => (
+                        <div key={product.id} className={`${styles.productCard} ${styles.animateFadeIn}`}>
+                          <img
+                            src={product.mainImage}
+                            alt={product.name}
+                            className={styles.productImage}
+                          />
+                          <p className="text-start mt-2">{product.name}</p>
+                          <p className="text-start text-gray-600">{product.price}</p>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    products.filter(product => product.category === category).map((product) => (
                       <div key={product.id} className={`${styles.productCard} ${styles.animateFadeIn}`}>
                         <img
                           src={product.mainImage}
@@ -114,58 +118,43 @@ const MainPage = () => {
                         <p className="text-start mt-2">{product.name}</p>
                         <p className="text-start text-gray-600">{product.price}</p>
                       </div>
-                    ))}
-                  </div>
-                ) : (
-                  products.filter(product => product.category === category).map((product) => (
-                    <div key={product.id} className={`${styles.productCard} ${styles.animateFadeIn}`}>
-                      <img
-                        src={product.mainImage}
-                        alt={product.name}
-                        className={styles.productImage}
-                      />
-                      <p className="text-start mt-2">{product.name}</p>
-                      <p className="text-start text-gray-600">{product.price}</p>
-                    </div>
-                  ))
-                )}
+                    ))
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Right Section - Featured Product */}
-      <section className="w-1/4 bg-white p-6 shadow-md rounded-lg">
-        <h2 className="text-2xl font-bold mb-4">Featured Product</h2>
-        <div className="relative w-full h-80 bg-white rounded-lg shadow-lg flex flex-col items-center justify-center">
-          {currentProduct.mainImage ? (
-            <img
-              src={currentProduct.mainImage}
-              alt={currentProduct.name}
-              className="w-full h-2/3 object-cover rounded-t-lg"
-            />
-          ) : (
-            <div className="w-full h-2/3 bg-gray-300 rounded-t-lg"></div>
-          )}
-          <div className="p-4 text-center">
-            <h3 className="text-lg font-bold">{currentProduct.name || "Product Name Unavailable"}</h3>
-            <p className="text-gray-600">{currentProduct.price || "Price Unavailable"}</p>
+            ))}
           </div>
+        </section>
+
+        {/* Right Section - Featured Product */}
+        <section className="w-1/4 bg-white p-6 shadow-md rounded-lg">
+          <h2 className="text-2xl font-bold mb-4">Featured Product</h2>
+          <div className="relative w-full h-80 bg-white rounded-lg shadow-lg flex flex-col items-center justify-center">
+            {currentProduct.mainImage ? (
+              <img
+                src={currentProduct.mainImage}
+                alt={currentProduct.name}
+                className="w-full h-2/3 object-cover rounded-t-lg"
+              />
+            ) : (
+              <div className="w-full h-2/3 bg-gray-300 rounded-t-lg"></div>
+            )}
+            <div className="p-4 text-center">
+              <h3 className="text-lg font-bold">{currentProduct.name || "Product Name Unavailable"}</h3>
+              <p className="text-gray-600">{currentProduct.price || "Price Unavailable"}</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Floating Promotions */}
+        <div className="fixed left-0 top-1/4 animate-bounce bg-blue-500 text-white p-4 rounded-lg shadow-lg">
+          <p>🔥 50% Off on Apparel!</p>
         </div>
-      </section>
-
-{/* Floating Promotions */}
-<div className="fixed left-0 top-1/4 animate-bounce bg-blue-500 text-white p-4 rounded-lg shadow-lg">
-  <p>🔥 50% Off on Apparel!</p>
-</div>
-<div className="fixed right-0 top-1/4 animate-bounce bg-red-500 text-white p-4 rounded-lg shadow-lg">
-  <p>⚡ Flash Sale: Equipment!</p>
-</div>
->>>>>>> 737bad9cd4c713c34de5f680b350c7bfbc470415
-    </main>
+        <div className="fixed right-0 top-1/4 animate-bounce bg-red-500 text-white p-4 rounded-lg shadow-lg">
+          <p>⚡ Flash Sale: Equipment!</p>
+        </div>
+      </main>
     </>
-
   );
 };
 
