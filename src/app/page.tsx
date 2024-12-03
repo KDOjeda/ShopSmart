@@ -2,7 +2,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import styles from "./MainPage.module.css";
+import styles from "./mainpage.module.css";
 //asdfghj
 const MainPage = () => {
   const products = [
