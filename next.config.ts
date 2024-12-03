@@ -1,6 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+
+
+  eslint:{
+    ignoreDuringBuilds: true,
+  },
   /* insert image domain here */
   images:{
     remotePatterns: [

@@ -1,8 +1,6 @@
 /* MainPage.module.css */
 
-/* Custom fade-in animation */
-@tailwind components;
-@tailwind utilities;
+
 
 @layer utilities {
     @keyframes fadeIn {
