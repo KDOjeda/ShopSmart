@@ -93,10 +93,11 @@ const MainPage = () => {
                     <div className={styles.productGrid}>
                       {products.filter(product => product.category === category).map((product) => (
                         <div key={product.id} className={`${styles.productCard} ${styles.animateFadeIn}`}>
-                          <img
+                          <img 
                             src={product.mainImage}
                             alt={product.name}
-                            className={styles.productImage}
+                            className={`${styles.productImage} ${styles.image}`}
+
                           />
                           <p className="text-start mt-2">{product.name}</p>
                           <p className="text-start text-gray-600">{product.price}</p>
