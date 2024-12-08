@@ -79,7 +79,6 @@ const MainPage = () => {
             ))}
           </ul>
         </section>
-
         {/* Middle Section - Popular Categories */}
         <section className="flex-1 mx-4 bg-white p-6 shadow-md rounded-lg">
           <h2 className="text-2xl font-bold mb-4">Popular Categories</h2>
@@ -87,11 +86,15 @@ const MainPage = () => {
             {categories.map((category, index) => (
               <div key={index} className={styles.categoryCard}>
                 <h3 className="text-xl font-semibold mb-4">{category}</h3>
+               
+
                 <div>
                   {category === "Apparel" || category === "Footwear" || category === "Accessories" 
                   || category === "Wearables" || category === "Equipment" || category === "Bags & Storage" || category === "Facilities & Setup"? (
+                    
                     <div className={styles.productGrid}>
                       {products.filter(product => product.category === category).map((product) => (
+                        
                         <div key={product.id} className={`${styles.productCard} ${styles.animateFadeIn}`}>
                           <img 
                             src={product.mainImage}

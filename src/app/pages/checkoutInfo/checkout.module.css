@@ -1,0 +1,23 @@
+.form{
+    width: 1000px;
+    margin-left: 50px;
+    margin-top: 50px;
+}
+
+.checkbox {
+    margin-left: -50px; 
+  } 
+  
+  .checkboxLabel {
+    display: flex;
+    align-items: center;
+  }
+
+  .gap{
+    width: 290px;
+    margin-left: 20px;
+  }
+
+
+
+
