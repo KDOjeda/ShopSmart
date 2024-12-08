@@ -36,7 +36,91 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "contents.mediadecathlon.com"
-      }
+      },
+      
+      {
+        protocol: "https",
+        hostname: "i5.walmartimages.com"
+      },
+
+      {
+        protocol: "https",
+        hostname: "vader-prod.s3.amazonaws.com"
+      },
+
+      {
+        protocol: "https",
+        hostname: "img.drz.lazcdn.com"
+      },
+      
+      {
+        protocol: "https",
+        hostname: "img.freepik.com "
+      },
+      {
+        protocol: "https",
+        hostname: "encrypted-tbn0.gstatic.com"
+      },
+      {
+        protocol: "https",
+        hostname: "underarmour.scene7.com"
+      },
+
+      {
+        protocol: "https",
+        hostname: "i5.walmartimages.com"
+      },
+      {
+        protocol: "https",
+        hostname: "images-na.ssl-images-amazon.com"
+      },
+      {
+        protocol: "https",
+        hostname: "encrypted-tbn3.gstatic.com"
+      },
+      {
+        protocol: "https",
+        hostname: "static.wixstatic.com"
+      },
+      {
+        protocol: "https",
+        hostname: "c4.iggcdn.com"
+      },
+      {
+        protocol: "https",
+        hostname: "encrypted-tbn2.gstatic.com"
+      },
+      {
+        protocol: "https",
+        hostname: "encrypted-tbn0.gstatic.com"
+      },
+      {
+        protocol: "https",
+        hostname: "img.freepik.com"
+      },
+
+      {
+        protocol: "https",
+        hostname: "transferit.com.ph"
+      },
+
+      // {
+      //   protocol: "https",
+      //   hostname: " "
+      // },
+      // {
+      //   protocol: "https",
+      //   hostname: " "
+      // },
+
+      
+      
+
+     
+
+      
+
+      
 
       
     ],

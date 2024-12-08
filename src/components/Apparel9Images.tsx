@@ -13,23 +13,13 @@ interface ImageData {
 const images: ImageData[] = [
   {
     id: 1,
-    url: "https://contents.mediadecathlon.com/p2158679/k$22367151ebd5ce6d1efd9f7d09b3cc92/ultimate-disc-original-175g-white-tribord-8590276.jpg?f=768x0&format=auto" 
+    url: "https://underarmour.scene7.com/is/image/Underarmour/PS1376759-001_HF?rp=standard-0pad|pdpZoomDesktop&scl=0.72&fmt=jpg&qlt=85&resMode=sharp2&cache=on,on&bgc=f0f0f0&wid=1836&hei=1950&size=1500,1500" 
   },
-  {
-    id: 2,
-    url: "https://contents.mediadecathlon.com/p2158677/k$72b5aae77ce0029735a6d4b1c657decd/ultimate-disc-original-175g-white-tribord-8590276.jpg?f=1920x0&format=auto"
-  },
-  {
-    id: 3,
-    url: "https://contents.mediadecathlon.com/p2158674/k$38b224fd7700b17102af3dd40525ae4b/ultimate-disc-original-175g-white-tribord-8590276.jpg?f=1920x0&format=auto"
-  },
-  {
-    id: 4,
-    url: "https://contents.mediadecathlon.com/p2158676/k$c840ba1b90c7f508f7f16a8997cb3466/ultimate-disc-original-175g-white-tribord-8590276.jpg?f=1920x0&format=auto"
-  }
+  
+ 
 ]
 
-const ProductImages = () => {
+const Apparel9Image = () => {
   const [index, setIndex] = useState(0)
   const [activeIndex, setActiveIndex] = useState<number | null>(null) // Track the clicked image
 
@@ -73,4 +63,4 @@ const ProductImages = () => {
   )
 }
 
-export default ProductImages
+export default Apparel9Image
