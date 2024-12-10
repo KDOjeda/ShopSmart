@@ -1,4 +1,4 @@
-// Import React from 'react';
+  import Link from 'next/link';
 import styles from '../syd/main.module.css';
 import Image from 'next/image';
 import { FaTruck } from "react-icons/fa";
@@ -7,16 +7,16 @@ import { TbTruckDelivery } from "react-icons/tb";
 import { FaBox } from "react-icons/fa";
 import { FaStar } from 'react-icons/fa';
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
-
+import { FaShoppingBag } from 'react-icons/fa';
 
 const OrderTracking = () => {
   const orders = [
     {
       id: '12345',
-      status: 'Shipped',
+      status: 'In Transit',
       estimatedDelivery: 'Dec 5, 2024',
       imageUrl: '/images/jersey.png',
-      description: 'This is a description for order 12345',
+      description: 'Classic Fit Performance Jersey: Lightweight and breathable, this jersey is designed for ultimate comfort and performance on the field or court. (Good for general sports/fitness)',
       rating: 4, 
     },
     {
@@ -24,25 +24,27 @@ const OrderTracking = () => {
       status: 'In Transit',
       estimatedDelivery: 'Dec 7, 2024',
       imageUrl: '/images/jacket.png',
-      description: 'This is a description for order 67890',
+      description: 'Lightweight Packable Jacket: Wind and water-resistant, this jacket is perfect for on-the-go protection and easy storage.',
       rating: 5,
     },
     {
       id: '11223',
-      status: 'Delivered',
+      status: 'In Transit',
       estimatedDelivery: 'Dec 1, 2024',
       imageUrl: '/images/shoes.png',
-      description: 'This is a description for order 11223',
+      description: 'Agility Training Shoes: Lightweight and responsive, these training shoes provide the support and flexibility you need for any workout. (Good for cross-training)',
       rating: 3,
     },
     {
       id: '44556',
-      status: 'Processing',
+      status: 'In Transit',
       estimatedDelivery: 'Dec 10, 2024',
-      imageUrl: '/images/tshirt.png',
-      description: 'This is a description for order 44556',
-      rating: null, // No rating yet
+      imageUrl: '/images/rushguard.png',
+      description: 'Flexible Performance Rash Guard: Designed for unrestricted movement, this rash guard is perfect for surfing, swimming, or any watersport where flexibility is key.',
+      rating:   null,
     },
+
+    
   ];
 
   return (
@@ -55,10 +57,14 @@ const OrderTracking = () => {
           <li className="step">Delivered <FaBox className='text-[25px]' /></li>
         </ul>
       </div>
+      
 
       <div className={styles.order}>
-        <h1>Your Order Details</h1>
+           <h1>Your Order Details</h1>
       </div>
+
+
+   
 
       <div className={styles.orderList}>
         {orders.map((order) => (
@@ -92,28 +98,34 @@ const OrderTracking = () => {
                         />
                       ))
                     ) : (
-                      "Not Rated Yet"
+                         "  Not Rated Yet"
                     )}
                   </div>
                 </div>
               </div>
               <div className={styles.flipCardBack}>
-                <h2 className={styles.orderId}>Order Description</h2>
+                <h2 className={styles.orderId}>Product Description</h2>
                 <p className={styles.description}>{order.description}</p>
               </div>
             </div>
           </div>
         ))}
       </div>
+      <div className={styles.checkout}>
+      <h2>Summary:</h2>
+  <p>Subtotal: $100.00</p>
+  <p>Shipping: $10.00</p>
+  <p>Total: $110.00</p>
 
-      <div className={styles.socials}>
-        <h3>Follow us on Social Media:</h3>
-        <div className={styles.socialIcons}>
-          <a href="#" target="_blank" rel="noopener noreferrer"><FaFacebook className={styles.socialIcon} /></a>
-          <a href="#" target="_blank" rel="noopener noreferrer"><FaTwitter className={styles.socialIcon} /></a>
-          <a href="#" target="_blank" rel="noopener noreferrer"><FaInstagram className={styles.socialIcon} /></a>
-        </div>
+  <Link  href="/pages/checkoutInfo">
+  <button className={styles.checkoutButton}>Checkout</button>
+  </Link>
+     
+      
       </div>
+
+
+      
     </div>
   );
 };

@@ -43,7 +43,12 @@ const ShowCart = () => {
                     <Link href='/pages/syd'>
                         <button className='rounded-md py-3 px-4 ring-1 ring-gray-300'>View Cart</button>
                     </Link>
-                    <button className='rounded-md py-3 px-4 bg-green-600 text-white'>Checkout</button>
+
+                    <Link href={'/pages/checkoutInfo'}>
+                    <button className='rounded-md py-3 px-4 bg-green-600 text-white'> 
+                        Checkout</button>
+                    </Link>
+                    
                 </div>
             </>
         )}
