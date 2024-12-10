@@ -1,9 +1,8 @@
-
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import styles from "./mainpage.module.css";
-//asdfghj
+
 const MainPage = () => {
   const products = [
     { id: 1, name: "Sports Shirt", price: "₱999", mainImage: "https://transferit.com.ph/pcimages/8064101/176819771/12/1/EFEFEF/prod.png?b=11429348&v=1720481852", category: "Apparel" },
@@ -30,8 +29,6 @@ const MainPage = () => {
     { id: 22, name: "Portable Basketball Net", price: "₱800", mainImage: "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcROZp2YLXcCZJ_8dyXgl5iDS0I6xUpJX7aDhg8tqdxdKHYwBNZWvaTUwY2bOasTIz3eTl6XldrWAGtGWpP9rdP9sU0Se2fKhRhW7ayawtdbPwQEpnbPD4Mx&usqp=CAE", category: "Facilities & Setup" },
 
 
-
-
   ];
 
   const categories = [
@@ -39,6 +36,7 @@ const MainPage = () => {
   ];
 
   const [currentProductIndex, setCurrentProductIndex] = useState(0);
+  const [showPopup, setShowPopup] = useState(true);
 
   useEffect(() => {
     if (products.length === 0) return;
@@ -52,59 +50,75 @@ const MainPage = () => {
 
   const currentProduct = products[currentProductIndex] || {};
 
+
   return (
     <>
-      <main className='flex flex-col'>
-        <section className="bg-gray-800 text-white text-center py-10">
-          <h1 className="text-4xl font-bold mb-2">Welcome to Our Sports Store!</h1>
-          <p className="text-lg">Your one-stop destination for all your sporting needs.</p>
-        </section>
-      </main>
-        {/* Punchline Section */}
-        <section className="bg-green-500 text-white text-center py-6">
-          <h2 className="text-3xl font-semibold">Equip Your Passion, Achieve Your Goals!</h2>
-        </section>
-        <main className="flex min-h-screen bg-gray-100 relative overflow-hidden">
+ <main className='flex flex-col mt-20 '>
+  <section className={`text-white text-center py-5 ${styles.hero}`}>
+    <h1 className="text-4xl font-bold mb-2  ">Welcome to Our Sports Store!</h1>
+    <p className="text-lg pt-9">Your one-stop destination for all your sporting needs.</p>
+  </section>
 
-        {/* Left Section - Categories */}
-        <section className="w-1/4 bg-white p-6 shadow-md rounded-lg mr-6">
-          <h2 className="text-2xl font-bold mb-4">Product Categories</h2>
-          <ul>
-            {categories.map((category, index) => (
-              <li key={index} className="text-gray-700 py-2">
-                <Link href={`/pages/${category.replace(/\s+/g, '')}`} className="text-blue-500 hover:text-blue-700">
-                  {category}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </section>
+  {/* Center Section - Categories */}
+  <section className="flex flex-wrap  p-1 shadow-md rounded-lg mt-1 sticky top-0 z-10 justify-center">
+    <ul className="flex flex-wrap justify-center space-x-6">
+      {categories.map((category, index) => (
+        <li key={index} className="text-gray-700 py-2">
+          <Link href={`/pages/${category.replace(/\s+/g, '')}`} className="text-green-500 hover:text-teal-800">
+            {category}
+          </Link>
+        </li>
+      ))}
+    </ul>
+  </section>
+</main>
+
+ {/* Floating Chat Icon */}
+ <div
+        className=" z-10 fixed bottom-5 right-5 bg-green-400 text-white rounded-full p-4 shadow-xl cursor-pointer hover:bg-teal-800 position-sticky"
+        onClick={() => alert("Chat with us!") /* Replace with chat functionality */}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={2}
+          stroke="currentColor"
+          className="w-6 h-6"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M8 10h8m-8 4h6m-7.5-8h10a2.5 2.5 0 012.5 2.5v10a2.5 2.5 0 01-2.5 2.5h-7l-4 4V6.5A2.5 2.5 0 016.5 4h.5z"
+          />
+        </svg>
+      </div>
+ 
+<main className={`flex min-h-screen bg-gray-100 relative overflow-hidden ${styles.background}`}>
+      
         {/* Middle Section - Popular Categories */}
-        <section className="flex-1 mx-4 bg-white p-6 shadow-md rounded-lg">
-          <h2 className="text-2xl font-bold mb-4">Popular Categories</h2>
+        <section className={`  flex-1 mx-4 p-6 shadow-md rounded-lg m-5 ${styles.middle}`}>
+          <h2 className="text-2xl font-bold mb-4 text-white">Popular Categories</h2>
           <div className={styles.categoryContainer}>
             {categories.map((category, index) => (
               <div key={index} className={styles.categoryCard}>
-                <h3 className="text-xl font-semibold mb-4">{category}</h3>
-               
-
+                <h3 className="text-xl text-white font-semibold mb-4">{category}</h3>
                 <div>
                   {category === "Apparel" || category === "Footwear" || category === "Accessories" 
                   || category === "Wearables" || category === "Equipment" || category === "Bags & Storage" || category === "Facilities & Setup"? (
-                    
                     <div className={styles.productGrid}>
                       {products.filter(product => product.category === category).map((product) => (
-                        
-                        <div key={product.id} className={`${styles.productCard} ${styles.animateFadeIn}`}>
-                          <img 
-                            src={product.mainImage}
-                            alt={product.name}
-                            className={`${styles.productImage} ${styles.image}`}
-
-                          />
-                          <p className="text-start mt-2">{product.name}</p>
-                          <p className="text-start text-gray-600">{product.price}</p>
-                        </div>
+                                <Link key={product.id} href={`/pages/${category.replace(/\s+/g, '')}/${product.id}`} passHref>
+                                <div className={`${styles.productCard} ${styles.animateFadeIn}`}>
+                                  <img  
+                                    src={product.mainImage}
+                                    alt={product.name}
+                                    className={`${styles.productImage} ${styles.image}`}
+                                  />
+                                  <p className="text-start text-black mt-2">{product.name}</p>
+                                  <p className="text-start text-black">{product.price}</p>
+                                </div>
+                              </Link>
                       ))}
                     </div>
                   ) : (
@@ -127,14 +141,14 @@ const MainPage = () => {
         </section>
 
         {/* Right Section - Featured Product */}
-        <section className="w-1/4 bg-white p-6 shadow-md rounded-lg">
+        <section className={`w-1/4 bg-white p-6 shadow-md rounded-lg relative m-5  ${styles.right}`}>
           <h2 className="text-2xl font-bold mb-4">Featured Product</h2>
           <div className="relative w-full h-80 bg-white rounded-lg shadow-lg flex flex-col items-center justify-center">
             {currentProduct.mainImage ? (
               <img
                 src={currentProduct.mainImage}
                 alt={currentProduct.name}
-                className="w-full h-2/3 object-cover rounded-t-lg"
+                className="w-full h-2/3 object-contain rounded-t-lg"
               />
             ) : (
               <div className="w-full h-2/3 bg-gray-300 rounded-t-lg"></div>
@@ -144,15 +158,60 @@ const MainPage = () => {
               <p className="text-gray-600">{currentProduct.price || "Price Unavailable"}</p>
             </div>
           </div>
-        </section>
 
-        {/* Floating Promotions */}
-        <div className="fixed left-0 top-1/4 animate-bounce bg-blue-500 text-white p-4 rounded-lg shadow-lg">
-          <p>🔥 50% Off on Apparel!</p>
-        </div>
-        <div className="fixed right-0 top-1/4 animate-bounce bg-red-500 text-white p-4 rounded-lg shadow-lg">
-          <p>⚡ Flash Sale: Equipment!</p>
-        </div>
+          <ul className="list-none space-y-4 text-md mt-3">
+            <li className="flex items-center">
+              <img src="images\checkicon.png" alt="check" className="w-6 h-6 mr-2" />
+              High-quality products tailored for athletes.
+            </li>
+            <li className="flex items-center">
+              <img src="images\checkicon.png" alt="check" className="w-6 h-6 mr-2" />
+              Affordable prices without compromising performance.
+            </li>
+            <button className="mt-6 px-4 py-2 bg-green-500 text-white rounded hover:bg-red-600">
+              <Link href="/pages/product">Shop Now</Link>
+            </button>
+          </ul>
+
+          <div className="bg-white p-6 mt-6 rounded-lg shadow-xl testimonials">
+            <h3 className="text-2xl font-bold mb-4">What Our Customers Say</h3>
+            <div className="testimonials-container">
+              <div className="testimonial-card">
+                <p className="italic">"The best sports store I've ever shopped at! Great quality and amazing customer service."</p>
+                <p className="text-sm text-gray-600">- Jane D.</p>
+              </div>
+              <div className="testimonial-card">
+                <p className="italic">"Absolutely love their collection! The products are durable and worth the price."</p>
+                <p className="text-sm text-gray-600">- Mark P.</p>
+              </div>
+              <div className="testimonial-card">
+                <p className="italic">"Fast delivery and top-notch products. Highly recommended!"</p>
+                <p className="text-sm text-gray-600">- Lucy K.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Frequently Asked Questions Section */}
+          <div className="bg-white p-6 mt-6 rounded-lg shadow-xl text-gray-800 faqs">
+            <h3 className="text-2xl font-bold mb-4">Frequently Asked Questions</h3>
+            <div className="faq-item">
+              <h4 className="font-semibold text-lg mb-2">Q: Do you ship internationally?</h4>
+              <p className="text-gray-700">A: Currently, we only ship within the Philippines. Stay tuned for future updates!</p>
+            </div>
+            <div className="faq-item">
+              <h4 className="font-semibold text-lg mb-2">Q: Can I return or exchange an item?</h4>
+              <p className="text-gray-700">A: Yes, we have a 30-day return policy for unused items in their original packaging.</p>
+            </div>
+            <div className="faq-item">
+              <h4 className="font-semibold text-lg mb-2">Q: Are your products covered by warranty?</h4>
+              <p className="text-gray-700">A: Many of our products include a 1-year warranty. Check the product page for details.</p>
+            </div>
+            <div className="faq-item">
+              <h4 className="font-semibold text-lg mb-2">Q: How can I contact customer support?</h4>
+              <p className="text-gray-700">A: You can reach us via email or phone, available 24/7 for your convenience.</p>
+            </div>
+          </div>
+        </section>
       </main>
     </>
   );
