@@ -1,9 +1,9 @@
 import React from 'react'
-import ProductImages from '@/components/ProductImages'
+import Apparel9Images from '@/components/Apparel9Images'
 import StarRating from '@/components/StarRating'
 import AddSection from '@/components/AddSection'
 
-const ProductDetail = () => {
+const Apparel9 = () => {
   const rating = 4;
   return (
     <>
@@ -12,19 +12,16 @@ const ProductDetail = () => {
           
           {/* Image */}
           <div className="w-full lg:w-1/2 lg:sticky top-20 h-max mt-10 border-r border-gray-300 pr-8">
-            <ProductImages />
+            <Apparel9Images/>
           </div>
 
           {/* Text */}
           <div className="w-full lg:w-1/2 flex flex-col gap-6 mt-10">
-            <h1 className="text-4xl font-bold mb-4 mt-7">Decathlon Tribord Ultimate Disc 175g</h1>
-            <h2 className='text-2xl font-bold'>₱150.00</h2>
+            <h1 className="text-4xl font-bold mb-4 mt-7">Running Short</h1>
+            <h2 className='text-2xl font-bold'>₱699.00</h2>
             <StarRating rating={rating} />
             <p className="text-lg">
-              The Tribord Ultimate Disc is designed for ultimate performance in water sports. 
-              Made from high-quality materials, this disc offers precision and durability.
-              Perfect for water enthusiasts, it's lightweight yet robust.
-            </p>
+            Running shorts are lightweight, breathable, and designed for optimal comfort during runs or workouts. They feature moisture-wicking fabrics, flexible designs, and often include built-in liners for support, ensuring ease of movement and performance.            </p>
             <hr className='h-[2px] bg-gray-600'/>
             <h4 className='font-medium'>Choose a Size</h4>
             <ul className='flex items-center gap-3'>
@@ -47,4 +44,4 @@ const ProductDetail = () => {
   )
 }
 
-export default ProductDetail
+export default Apparel9
