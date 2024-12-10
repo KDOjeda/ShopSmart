@@ -11,7 +11,7 @@ const NavBar = () => {
       <div className="h-full flex items-center justify-between md:hidden">
         {/* MOBILE */}
         <Link href="/">
-          <div className="font-bold text-4xl text-center pb-4 pl-10 sm:pb-0 text-blue-800 tracking-wide text-shadow-logo">
+          <div className="font-bold text-4xl text-center pb-4 pl-10 sm:pb-0 text-green-500 tracking-wide text-shadow-logo">
             ShopSmart
           </div>
         </Link>
@@ -21,7 +21,7 @@ const NavBar = () => {
       <div className="  hidden md:flex items-center justify-between gap-8 h-full">
         <div className="w-1/3 xl:w-1/2 flex items-center gap-12">
           <Link href="/" className="flex items-center">
-            <div className="font-bold text-4xl text-blue-800 tracking-wide text-shadow-logo">
+            <div className="font-bold text-4xl text-green-500 tracking-wide text-shadow-logo">
               ShopSmart
             </div>
           </Link>
