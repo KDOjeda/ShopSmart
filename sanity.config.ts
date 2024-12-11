@@ -26,3 +26,15 @@ export default defineConfig({
     visionTool({defaultApiVersion: apiVersion}),
   ],
 })
+
+import { visionTool } from '@sanity/vision'
+
+export default {
+  name: 'myStudio',
+  title: 'My Studio',
+  projectId: 'your-project-id',
+  dataset: 'your-dataset',
+  plugins: [
+    visionTool() // Make sure this line is included
+  ]
+}
