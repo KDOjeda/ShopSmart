@@ -11,7 +11,7 @@
   "dependencies": {
     "flowbite": "^2.5.2",
     "lucide-react": "^0.462.0",
-    "next": "^15.0.3",
+    "next": "^15.0.4",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106",
     "react-easy-swipe": "^0.0.23",
@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@types/node": "20.17.8",
-    "@types/react": "^18.3.12",
+    "@types/react": "^18.3.14",
     "@types/react-dom": "^18",
     "@types/tailwindcss": "^3.0.11",
     "daisyui": "^4.12.14",

@@ -98,11 +98,11 @@ const MainPage = () => {
       
         {/* Middle Section - Popular Categories */}
         <section className={`  flex-1 mx-4 p-6 shadow-md rounded-lg m-5 ${styles.middle}`}>
-          <h2 className="text-2xl font-bold mb-4">Popular Categories</h2>
+          <h2 className="text-2xl font-bold mb-4 text-white">Popular Categories</h2>
           <div className={styles.categoryContainer}>
             {categories.map((category, index) => (
               <div key={index} className={styles.categoryCard}>
-                <h3 className="text-xl font-semibold mb-4">{category}</h3>
+                <h3 className="text-xl text-white font-semibold mb-4">{category}</h3>
                 <div>
                   {category === "Apparel" || category === "Footwear" || category === "Accessories" 
                   || category === "Wearables" || category === "Equipment" || category === "Bags & Storage" || category === "Facilities & Setup"? (
@@ -115,8 +115,8 @@ const MainPage = () => {
                                     alt={product.name}
                                     className={`${styles.productImage} ${styles.image}`}
                                   />
-                                  <p className="text-start mt-2">{product.name}</p>
-                                  <p className="text-start text-gray-600">{product.price}</p>
+                                  <p className="text-start text-black mt-2">{product.name}</p>
+                                  <p className="text-start text-black">{product.price}</p>
                                 </div>
                               </Link>
                       ))}
@@ -141,7 +141,7 @@ const MainPage = () => {
         </section>
 
         {/* Right Section - Featured Product */}
-        <section className="w-1/4 bg-white p-6 shadow-md rounded-lg relative m-5">
+        <section className={`w-1/4 bg-white p-6 shadow-md rounded-lg relative m-5  ${styles.right}`}>
           <h2 className="text-2xl font-bold mb-4">Featured Product</h2>
           <div className="relative w-full h-80 bg-white rounded-lg shadow-lg flex flex-col items-center justify-center">
             {currentProduct.mainImage ? (

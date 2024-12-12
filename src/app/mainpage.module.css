@@ -93,6 +93,11 @@
   width: 300px;
   height: 300px;
   object-fit: contain;
+  border-top-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+
+  margin: 0 auto;
+  
 } 
 
 /* Why Choose Us Section */
@@ -213,17 +218,36 @@
 }
 
 .background {
-  background: linear-gradient(to bottom right, #FE7A36, #3652AD, #280274, #E9F6FF);
+ 
+  background: url('https://media.gettyimages.com/id/465302773/video/t-l-petronas-towers-kcc-shopping-centre-interior-of-busy-shopping-complex-kuala-lumpur.jpg?s=640x640&k=20&c=qKZnPEFNxmIDg6j39kdkxp4S1kdvHtSk5NNK-i3y6Gg=');
+ 
+   
+  
+  
 }
 
 .hero{
-  background: linear-gradient(to bottom right, #FE7A36, #3652AD, #280274, #7c61a9);
-
+  background: url('https://media.gettyimages.com/id/465302773/video/t-l-petronas-towers-kcc-shopping-centre-interior-of-busy-shopping-complex-kuala-lumpur.jpg?s=640x640&k=20&c=qKZnPEFNxmIDg6j39kdkxp4S1kdvHtSk5NNK-i3y6Gg=');
+ 
 }
 .middle{
  
-  background: rgba(160, 158, 158, 0.173);
-  backdrop-filter: blur(20px);
+  background: rgba(252, 161, 252, 0.199);
+  backdrop-filter: blur(2px);
+  border: 1px solid grey;
   
+
+} 
+
+.productCard{
+  background: rgba(76, 165, 206, 0.507);
+  backdrop-filter: blur(10px);
+  border: 1px solid grey;
+}
+
+.right{
+  background: rgba(252, 161, 252, 0.199);
+  backdrop-filter: blur(2px);
+  border: 1px solid grey;
 
 }
