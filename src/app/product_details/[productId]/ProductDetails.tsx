@@ -9,6 +9,7 @@ import CartButton from "@/app/components/CartButton";
 import { useRouter } from "next/navigation";
 import SetQuantity from "@/app/products/SetQuantity";
 import { useCart } from "../../../../hooks/useCart";
+import { formatPrice } from "../../../../productdb/formatPrice";
 
 interface ProductDetailsProps{
     product: any;
@@ -26,8 +27,7 @@ export type CartProductType = {
 }
 
 export type SelectedImgType = {
-    color: string,
-    colorCode: string,
+    id: string,
     image: string
 }
 
@@ -68,10 +68,10 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({product}) => {
         item.rating + acc, 0) / product.reviews.length;
 
     const Horizontal = () => {
-        return <hr className="w-[30%] my-2"/>
+        return <hr className="w-[75%] my-2"/>
     };
 
-    const handleColorSelect = useCallback(
+    const handleImageSelect = useCallback(
         (value: SelectedImgType) => {
             setCartProduct((prev) => {
                 return { ...prev, selectedImg: value};
@@ -101,13 +101,14 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({product}) => {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-        <ProductImages cartProduct={cartProduct} product={product} handleColorSelect={handleColorSelect}/>
-        <div>
-            <h2 className="text-2xl font-bold">{product.name}</h2>
+        <ProductImages  cartProduct={cartProduct} product={product} handleImageSelect={handleImageSelect}/>
+        <div className="w-full lg:w-[100%] flex flex-col gap-6 mt-7">
+            <h2 className="text-4xl font-bold">{product.name}</h2>
             <div className="flex items-center gap-2">
                 <Rating value={productRating} readOnly/>
                 <div>{product.reviews.length} reviews</div>
             </div>
+            <h2 className="text-3xl font-semibold">{formatPrice(product.price)}</h2>
             <Horizontal/>
             <div className="text-justify">{product.description}</div>
             <Horizontal/>

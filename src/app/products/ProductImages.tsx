@@ -1,55 +1,54 @@
-"use client"
+'use client';
 
-import Image from 'next/image'
+import Image from 'next/image';
 import { CartProductType, SelectedImgType } from '../product_details/[productId]/ProductDetails';
 
 interface ProductImagesProps {
     cartProduct: CartProductType;
     product: any;
-    handleColorSelect: (value: SelectedImgType) => void
-
+    handleImageSelect: (value: SelectedImgType) => void;
 }
 
 const ProductImages: React.FC<ProductImagesProps> = ({
     cartProduct,
     product,
-    handleColorSelect
+    handleImageSelect
 }) => {
-  return (
-    <div className="grid grid-cols-6 gap-2 h-full max-h-[500px] min-h-[300px] sm:min-h-[400px]">
-        <div className="flex flex-col items-center justify-center gap-4 cursor-pointer border h-full max-h-[500px] min-h-[300px] sm:min-h-[400px]">
-            {product.images.map((image: SelectedImgType) => {
-                return (
-                    <div 
-                        key={image.color}
-                        onClick={() => handleColorSelect(image)}
-                        className={`relative w-[80%] aspect-square rounded border-teal-300
+    return (
+        <div className="grid grid-cols-5 gap-4 h-full max-h-[600px] min-h-[400px] sm:min-h-[500px] mt-7">
+            {/* Sidebar with wider thumbnails */}
+            <div className="flex flex-col items-center justify-center gap-4 cursor-pointer border h-full max-h-[600px] min-h-[400px] sm:min-h-[500px] w-[150px]">
+                {product.images.map((image: SelectedImgType) => (
+                    <div
+                        key={image.id}
+                        onClick={() => handleImageSelect(image)}
+                        className={`relative w-[90%] aspect-square rounded border-teal-300
                             ${
-                                cartProduct.selectedImg.color === 
-                                image.color ? "border-[1.5px]" : "border-none"
-                            }
-                            `}
-                    > 
+                                cartProduct.selectedImg.id === image.id
+                                    ? 'border-[2px]'
+                                    : 'border-none'
+                            }`}
+                    >
                         <Image
                             src={image.image}
-                            alt={image.color}
+                            alt={image.id}
                             fill
                             className="object-contain"
                         />
                     </div>
-                );
-            })}
+                ))}
+            </div>
+            {/* Main product image */}
+            <div className="col-span-4 relative aspect-square">
+                <Image
+                    fill
+                    src={cartProduct.selectedImg.image}
+                    alt={cartProduct.name}
+                    className="w-full h-full object-contain"
+                />
+            </div>
         </div>
-        <div className="col-span-5 relative aspect-square">
-            <Image
-                fill
-                src={cartProduct.selectedImg.image}
-                alt={cartProduct.name}
-                className="w-full h-full max-h-[500px] min-h-[300px] sm:min-h-[400px]"
-            />
-        </div>
-    </div>
-  )
-}
+    );
+};
 
-export default ProductImages
+export default ProductImages;

@@ -104,10 +104,10 @@ const nextConfig: NextConfig = {
         hostname: "transferit.com.ph"
       },
 
-      // {
-      //   protocol: "https",
-      //   hostname: " "
-      // },
+      {
+        protocol: "https",
+        hostname: "images-cdn.ubuy.com.ph"
+      },
       // {
       //   protocol: "https",
       //   hostname: " "

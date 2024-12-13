@@ -11,14 +11,12 @@ export const products = [
       inStock: true,
       images: [
         {
-          color: "White",
-          colorCode: "#FFFFFF",
+          id: 1,
           image:
             "https://m.media-amazon.com/images/I/71p-tHQ0u1L._AC_SX679_.jpg",
         },
         {
-          color: "Gray",
-          colorCode: "#808080",
+          id: 2,
           image:
             "https://m.media-amazon.com/images/I/417tEj3iJ8L._AC_.jpg",
         },
@@ -58,8 +56,7 @@ export const products = [
       inStock: true,
       images: [
         {
-          color: "Black",
-          colorCode: "#000000",
+          id: 1,
           image:
             "https://m.media-amazon.com/images/I/71gOLg2-kqL.__AC_SX300_SY300_QL70_FMwebp_.jpg",
         },
@@ -98,20 +95,17 @@ export const products = [
       inStock: true,
       images: [
         {
-          color: "Black",
-          colorCode: "#000000",
+          id: 1,
           image:
             "https://m.media-amazon.com/images/I/61g+McQpg7L._AC_SX679_.jpg",
         },
         {
-          color: "Blue",
-          colorCode: " #0000FF",
+          id: 2,
           image:
             "https://m.media-amazon.com/images/I/713Om9vCHUL._AC_SX679_.jpg",
         },
         {
-          color: "Red",
-          colorCode: "#FF0000",
+          id: 3,
           image:
             "https://m.media-amazon.com/images/I/61thdjmfHcL.__AC_SX300_SY300_QL70_FMwebp_.jpg",
         },
@@ -171,8 +165,7 @@ export const products = [
       inStock: true,
       images: [
         {
-          color: "Graphite",
-          colorCode: " #383838",
+          id: 1,
           image:
             "https://m.media-amazon.com/images/I/61ni3t1ryQL.__AC_SX300_SY300_QL70_FMwebp_.jpg",
         },
@@ -190,18 +183,45 @@ export const products = [
       inStock: true,
       images: [
         {
-          color: "Black",
-          colorCode: "#000000",
+          id: 1,
           image:
             "https://m.media-amazon.com/images/I/71s4mjiit3L.__AC_SX300_SY300_QL70_FMwebp_.jpg",
         },
         {
-          color: "Silver",
-          colorCode: "#C0C0C0",
+          id: 2,
           image:
             "https://m.media-amazon.com/images/I/71zbWSRMaYL.__AC_SX300_SY300_QL70_FMwebp_.jpg",
         },
       ],
       reviews: [],
+    },
+    {
+      id: "6503b7f82e9b6a7f6123041",
+      name: " Amazfit Active Smart Watch",
+      description:
+       "Amazfit Active Smart Watch 42mm,Fitness Watch for Android & iPhone,Black",
+      price: 8839,
+      brand: "AmazFit",
+      category: "Wearable",
+      inStock: true,
+      images: [
+        {
+          id: 1,
+          image:
+            "https://images-cdn.ubuy.com.ph/66ff54def31451517f14df43-amazfit-active-smart-watch-42mm-fitness.jpg",
+        },
+        {
+          id: 2,
+          image:
+            "https://images-cdn.ubuy.com.ph/66ff54def31451517f14df49-amazfit-active-smart-watch-42mm-fitness.jpg",
+        },
+        {
+          id: 3,
+          image:
+            "https://images-cdn.ubuy.com.ph/66ff54def31451517f14df46-amazfit-active-smart-watch-42mm-fitness.jpg",
+        },
+      ],
+      reviews: [
+      ],
     },
   ];

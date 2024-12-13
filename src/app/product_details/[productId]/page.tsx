@@ -3,6 +3,7 @@ import React from 'react'
 import ProductDetails from './ProductDetails';
 import ListRating from './ListRating';
 import { products } from '../../../../productdb/products';
+import RelatedItems from '@/app/components/RelatedItems';
 
 interface IPrams {
     productId?: string;
@@ -19,7 +20,7 @@ const Product = ({params} : {params: IPrams}) => {
         <Container>
             <ProductDetails product={product}/>
             <div className='flex flex-col mt-20 gap-4'>
-                <div></div>
+                <RelatedItems/>
                 <ListRating product={product}/>
             </div>
         </Container>
