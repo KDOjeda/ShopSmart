@@ -4,6 +4,16 @@ import styles from '../checkoutInfo/checkout.module.css';
 export default function CheckoutInfo() {
   return (
     <div className={styles.form}>
+
+      <h1 className={styles.CheckOut}>
+        Check Out
+      </h1>
+
+      <h1 className={styles.CheckOut2}>
+        Billing Details
+      </h1>
+
+      
      
 <label className="input input-bordered flex items-center gap-2 mb-4">
 

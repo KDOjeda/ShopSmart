@@ -58,6 +58,63 @@
 
 }
 
+.orderStatus {
+  font-weight: bold;
+  font-size: 20px;
+  color: #333;
+  margin-right: 1220px;
+}
+
+.orderStatus2{
+
+  margin-right: 1560px;
+  font-weight: bold;
+  font-size: 20px;
+  color: #333;
+  
+
+
+}
+
+
+
+
+.SignUp{
+   
+    margin-right: 1700px;
+    font-weight: bold;
+    font-size: 15px;
+    color: #333;
+    text-decoration: underline; 
+}
+
+.Placed {
+  padding: 30px 0;
+  text-align: center;
+  background-color: rgb(173, 212, 221);
+  font-size: 30px;
+  font-weight: bold;
+  color: rgb(170, 210, 243);
+  opacity: 0.8;
+  border-radius: 40px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+
+
+}
+
+.orderDetails2{
+  font-size: 40px;
+  font-weight: bold;
+  color: #01060a;
+}
+
+.orderDetails3{
+  font-size: 20px;
+  font-weight: bold;
+  color: #01060a;
+}
+
 .timeline {
   display: flex;
   justify-content: space-between;
