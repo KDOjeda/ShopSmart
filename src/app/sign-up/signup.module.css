@@ -1,0 +1,19 @@
+.signIn{
+    background-color:rgb(222, 222, 243);
+    /* backdrop-filter: blur(2.5px); */
+    width: 1000px;
+    
+
+}
+.body{
+    background-color: rgb(172, 227, 172);
+    /* background-image: url("https://img.freepik.com/free-photo/closeup-grass-covered-snowflakes-cloudy-sky-with-blurry-background_181624-16086.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: fill; */
+    /* width: 100vw;
+    height: 100vh;
+     */
+    /* background: rgb(34,193,195);
+    background: radial-gradient(circle, rgba(34,193,195,1) 7%, rgba(82,192,96,1) 19%, rgba(115,191,140,1) 26%, rgba(117,209,48,1) 43%, rgba(196,189,84,1) 63%, rgba(110,218,69,1) 76%, rgba(229,192,49,1) 89%, rgba(253,187,45,1) 95%); */
+}
