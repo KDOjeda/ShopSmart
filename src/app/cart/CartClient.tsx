@@ -6,11 +6,12 @@ import { MdArrowBack } from "react-icons/md";
 import ItemContent from "./ItemContent";
 import Heading from "@/app/components/Heading";
 import CartButton from "@/app/components/CartButton";
+import { formatPrice } from "../../../productdb/formatPrice";
 
 
 const CartClient = () => {
 
-    const { cartProducts } = useCart();
+    const { cartProducts, cartTotalAmount, handleClearCart } = useCart();
 
     if (!cartProducts || cartProducts.length == 0) {
 
@@ -48,17 +49,17 @@ return(
         </div>
         <div className="border-t-[1.5px] border-slate-200 py-4 flex justify-between gap-4">
             <div className="w-[90px]">
-                <CartButton label="Clear Cart" onClick={() => {}} small outline/>
+                <CartButton label="Clear Cart" onClick={() => {handleClearCart(); }} small outline/>
             </div>
             <div className="text-sm flex flex-col gap-1 items-start">
                 <div className="flex justify-between w-full text-base font-semibold">
                     <span>Subtotal</span>
-                    <span>₱1,000</span>
+                    <span>{formatPrice(cartTotalAmount)}</span>
                 </div>
                 <p className="text-slate-500">Taxes and shipping calculate at checkout</p>
                 <CartButton label="Checkout" onClick={() => {}}/>
                 <Link
-                    href={"/"}
+                    href={"/product_list"}
                     className="text-slate-500 flex items-center gap-1 mt-2"
                 >
                     <MdArrowBack/>

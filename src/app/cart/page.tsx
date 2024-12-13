@@ -4,7 +4,7 @@ import CartClient from './CartClient'
 
 const Cart = () => {
   return (
-    <div className='pt-8'>
+    <div className='mt-28'>
       <Container>
         <CartClient/>
       </Container>

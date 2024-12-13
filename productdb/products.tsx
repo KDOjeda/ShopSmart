@@ -461,5 +461,33 @@ export const products = [
       ],
       reviews: [],
     },
-
+    {
+      id: "6503b7f82e9b6a7f6123041",
+      name: " Amazfit Active Smart Watch",
+      description:
+       "Amazfit Active Smart Watch 42mm,Fitness Watch for Android & iPhone,Black",
+      price: 8839,
+      brand: "AmazFit",
+      category: "Wearable",
+      inStock: true,
+      images: [
+        {
+          id: 1,
+          image:
+            "https://images-cdn.ubuy.com.ph/66ff54def31451517f14df43-amazfit-active-smart-watch-42mm-fitness.jpg",
+        },
+        {
+          id: 2,
+          image:
+            "https://images-cdn.ubuy.com.ph/66ff54def31451517f14df49-amazfit-active-smart-watch-42mm-fitness.jpg",
+        },
+        {
+          id: 3,
+          image:
+            "https://images-cdn.ubuy.com.ph/66ff54def31451517f14df46-amazfit-active-smart-watch-42mm-fitness.jpg",
+        },
+      ],
+      reviews: [
+      ],
+    },
   ];

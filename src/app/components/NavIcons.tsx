@@ -13,7 +13,6 @@ import { TbLogout } from "react-icons/tb";
 const NavIcons = () => {
 
     const [isProfileOpen, setIsProfileOpen] = useState(false)
-    const [isCartOpen, setIsCartOpen] = useState(false)
     const closeIconModal = useRef<HTMLDivElement>(null);
 
     const handleProfile = () => {
@@ -24,7 +23,7 @@ const NavIcons = () => {
     useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (closeIconModal.current && !closeIconModal.current.contains(event.target as Node)) {
-        setIsProfileOpen(false), setIsCartOpen(false);
+        setIsProfileOpen(false);
       }
     };
 
@@ -46,6 +45,9 @@ const NavIcons = () => {
             <div className='mt-2 cursor-pointer block px-4 py-2 text-gray-700 hover:bg-gray-100 text-base'>Logout</div>
         </div>
       )}
+      <div className="relative cursor-pointer">
+        <ShowCart/> 
+      </div>
       <div className="relative cursor-pointer" ref={closeIconModal}>
         <TiShoppingCart onClick={() => setIsCartOpen((prev) => !prev)} />
         <div className="bg-white rounded-full absolute top-0 right-0 w-[16px] h-[16px] text-[11px] text-emerald-600 font-extrabold grid place-items-center translate-x-1 -translate-y-1">0</div>
@@ -66,4 +68,4 @@ const NavIcons = () => {
   )
 }
 
-export default NavIcons
+export default NavIcons;
