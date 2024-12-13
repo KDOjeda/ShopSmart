@@ -10,6 +10,7 @@ import { signOut } from "firebase/auth";
 import { TbLogout } from "react-icons/tb";
 
 
+
 const NavIcons = () => {
 
     const [isProfileOpen, setIsProfileOpen] = useState(false)
@@ -41,10 +42,23 @@ const NavIcons = () => {
       <BiUser className="cursor-pointer" onClick={handleProfile}/>
       {isProfileOpen && (
         <div className='bg-white absolute p-4 rounded-md top-12 left-0 text-sm shadow-[0_3px_10px_rgb(0,0,0,0.2)] z-10'>
-            <Link href="" className="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-base">Profile</Link>
-            <div className='mt-2 cursor-pointer block px-4 py-2 text-gray-700 hover:bg-gray-100 text-base'>Settings</div>
-            <div className='mt-2 cursor-pointer block px-4 py-2 text-gray-700 hover:bg-gray-100 text-base'>Logout</div>
-        </div>
+            <Link href="" className="block px-4 py-2 text-gray-700 hover:bg-blue-300 text-base rounded-md">Profile</Link>
+            <div className='mt-2 cursor-pointer block px-4 py-2 text-gray-700 hover:bg-gray-100 text-base rounded-md'>Settings</div>
+            <div className='mt-2 cursor-pointer block px-4 py-2 text-gray-700 hover:bg-red-300 text-base rounded-md'>
+  <a 
+    onClick={() => {
+      signOut(auth);
+      sessionStorage.removeItem('user');
+    }} 
+    className='flex items-center gap-2'
+  >
+    <TbLogout className='text-red-500 ' />
+    <span className='mb-1'>Logout</span>
+  </a>
+</div>
+
+
+                   </div>
       )}
       <div className="relative cursor-pointer" ref={closeIconModal}>
         <TiShoppingCart onClick={() => setIsCartOpen((prev) => !prev)} />
@@ -55,13 +69,13 @@ const NavIcons = () => {
 
         </div>  
 
-        <button  onClick={() => 
+        {/* <button  onClick={() => 
          {
           signOut(auth)
           sessionStorage.removeItem('user')
         
          } }> <TbLogout className='ml-10 text-red-500' />
-               </button>
+               </button> */}
     </div>
   )
 }

@@ -1,19 +1,25 @@
 
 import { products } from '../../../productdb/products';
 import ProductCard from '../products/ProductCard';
+import styles from '../product_list/list.module.css'
 
 
 const ProductList = () => {
   return (
-    <div className=''>
-      <div className='text-center text-3xl font-bold mb-10 mt-24'>PRODUCT MALL</div>
+   
+        <div className={` ${styles.list}`}>
+      <div className='text-center text-3xl font-bold mb-10 pt-4'>PRODUCT MALL</div>
       {/* {Product Cards} */}
+
       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8'>
         {products.map((product: any) => {
-            return <ProductCard key={product.id} data={product}/>
+            return <div className={`ml-2 mr-2 ${styles.card}`} > <ProductCard  key={product.id} data={product} /></div>
+
           })}
       </div>
     </div>
+    
+    
   )
 };
 

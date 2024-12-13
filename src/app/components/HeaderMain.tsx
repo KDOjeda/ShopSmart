@@ -7,6 +7,9 @@ import { RiArrowDownSLine } from 'react-icons/ri';  // Import the arrow icon
 import { TiShoppingCart } from 'react-icons/ti';
 import Link from 'next/link';
 import ShowCart from './ShowCart';
+import { auth } from '@/app/firebase/config';
+import { signOut } from "firebase/auth";
+import { TbLogout } from "react-icons/tb";
 
 const HeaderMain = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -89,8 +92,15 @@ const HeaderMain = () => {
                       <a href="/settings" className="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-base">Settings</a>
                     </li>
                     <li>
-                      <a href="/logout" className="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-base">Logout</a>
+                    <a  onClick={() => 
+                             {
+                              signOut(auth)
+                              sessionStorage.removeItem('user')
+                            
+                             } }> <TbLogout className='ml-10 text-red-500' />
+                                   </a>
                     </li>
+                     
                   </ul>
                 </div>
               )}
