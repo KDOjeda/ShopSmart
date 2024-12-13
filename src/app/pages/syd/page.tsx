@@ -48,23 +48,43 @@ const OrderTracking = () => {
   ];
 
   return (
+    
+
     <div className={styles.container}>
-      <div className={styles.stepstatus}>
+
+
+      <h1 className={styles.orderDetails2}>Your Order Details</h1>
+           <h2 className={styles.orderDetails3}>ORDER NUMBER #921932</h2>
+           <h2 className={styles.orderDetails3}>Placed Febuary 29, 2024</h2>
+           
+         
+
+      <div className={styles.Placed}>
+        
+      <h2 className={styles.orderStatus2}>Order Status Updates</h2>
+      <p className={styles.orderStatus}>
+      Sign Up for text messages, we'll send your order updates.
+      </p>
+      <Link className={styles.SignUp} href="/signup">Sign Up</Link>
+    </div>
+
+
+    <div>
+           <div className={styles.stepstatus}>
         <ul className="steps">
           <li className="step step-primary">Ordered <FaCheckCircle className='text-[25px]' /></li>
           <li className="step step-primary">In Transit <FaTruck className='text-[25px]' /></li>
           <li className="step">Out For Delivery <TbTruckDelivery className='text-[25px]' /></li>
           <li className="step">Delivered <FaBox className='text-[25px]' /></li>
         </ul>
+
+        
       </div>
-      
+    </div>
+    
 
-      <div className={styles.order}>
-           <h1>Your Order Details</h1>
-      </div>
-
-
-   
+      {/* ... your other page content ... */}
+  
 
       <div className={styles.orderList}>
         {orders.map((order) => (
@@ -112,9 +132,10 @@ const OrderTracking = () => {
         ))}
       </div>
       <div className={styles.checkout}>
-      <h2>Summary:</h2>
+      <h2>Order Summary:</h2>
   <p>Subtotal: $100.00</p>
-  <p>Shipping: $10.00</p>
+  <p>Parcel Shipping: $10.00</p>
+  <p>Tax: $10.00</p>
   <p>Total: $110.00</p>
 
   <Link  href="/pages/checkoutInfo">

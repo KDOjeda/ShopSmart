@@ -1,7 +1,11 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import Link from "next/link";
-import styles from "./mainpage.module.css";
+import React, { useState, useEffect } from "react"
+import Link from "next/link"
+import styles from "./mainpage.module.css"
+import {useAuthState} from 'react-firebase-hooks/auth'
+import { auth } from '@/app/firebase/config';
+import { useRouter } from "next/navigation";
+
 
 const MainPage = () => {
   const products = [
@@ -50,13 +54,32 @@ const MainPage = () => {
 
   const currentProduct = products[currentProductIndex] || {};
 
+  const [user] = useAuthState(auth);
+  const router = useRouter();
+  const userSession = sessionStorage.getItem('user');
+
+
+  if (!user || !userSession){
+    router.push('/sign-up')
+  }
+
 
   return (
     <>
  <main className='flex flex-col mt-20 '>
+ {/* <button onClick={() => 
+ {
+  signOut(auth)
+  sessionStorage.removeItem('user')
+
+ } }>log out</button> */}
   <section className={`text-white text-center py-5 ${styles.hero}`}>
     <h1 className="text-4xl font-bold mb-2  ">Welcome to Our Sports Store!</h1>
+    
     <p className="text-lg pt-9">Your one-stop destination for all your sporting needs.</p>
+
+    
+
   </section>
 
   {/* Center Section - Categories */}

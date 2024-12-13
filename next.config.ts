@@ -108,6 +108,53 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "images-cdn.ubuy.com.ph"
       },
+        hostname: "www.everythingtrackandfield.com"
+      },
+
+      {
+        protocol: "https",
+        hostname: "fanatics.frgimages.com"
+      },
+
+      {
+        protocol: "https",
+        hostname: "marksandspencer.com.ph"
+      },
+
+      {
+        protocol: "https",
+        hostname: "m.media-amazon.com"
+      },
+
+      {
+        protocol: "https",
+        hostname: "images-cdn.ubuy.com.ph"
+      },
+
+      {
+        protocol: "https",
+        hostname: "assets.adidas.com"
+      },
+
+      {
+        protocol: "https",
+        hostname: "wunderarmour.scene7.com"
+      },
+
+      {
+        protocol: "https",
+        hostname: "m.media-amazon.com"
+      },
+
+      {
+        protocol: "https",
+        hostname: "m.media-amazon.com"
+      },
+
+      {
+        protocol: "https",
+        hostname: "m.media-amazon.com"
+      },
       // {
       //   protocol: "https",
       //   hostname: " "

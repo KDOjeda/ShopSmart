@@ -104,6 +104,9 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({product}) => {
         <ProductImages  cartProduct={cartProduct} product={product} handleImageSelect={handleImageSelect}/>
         <div className="w-full lg:w-[100%] flex flex-col gap-6 mt-7">
             <h2 className="text-4xl font-bold">{product.name}</h2>
+        <ProductImages cartProduct={cartProduct} product={product} handleImageSelect={handleImageSelect}/>
+        <div>
+            <h2 className="text-2xl font-bold">{product.name}</h2>
             <div className="flex items-center gap-2">
                 <Rating value={productRating} readOnly/>
                 <div>{product.reviews.length} reviews</div>
