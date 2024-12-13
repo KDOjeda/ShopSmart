@@ -26,8 +26,7 @@ export type CartProductType = {
 }
 
 export type SelectedImgType = {
-    color: string,
-    colorCode: string,
+    id: string,
     image: string
 }
 
@@ -71,7 +70,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({product}) => {
         return <hr className="w-[30%] my-2"/>
     };
 
-    const handleColorSelect = useCallback(
+    const handleImageSelect = useCallback(
         (value: SelectedImgType) => {
             setCartProduct((prev) => {
                 return { ...prev, selectedImg: value};
@@ -101,7 +100,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({product}) => {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-        <ProductImages cartProduct={cartProduct} product={product} handleColorSelect={handleColorSelect}/>
+        <ProductImages cartProduct={cartProduct} product={product} handleImageSelect={handleImageSelect}/>
         <div>
             <h2 className="text-2xl font-bold">{product.name}</h2>
             <div className="flex items-center gap-2">
