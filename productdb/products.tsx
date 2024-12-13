@@ -403,36 +403,6 @@ export const products = [
         
       ],
     },
-
-    {
-      id: "64a4e9e77e7299078334019f",
-      name: "EyeBlack Anti-Glare Under Eye Black Sports Grease Stick for Pro Performance",
-      description:
-        " This powerful grease stick is not just for sports—it's your secret weapon to amplify your athletic prowess! From the football field to the baseball diamond and the softball pitch, this grease stick is your ultimate companion.",
-      price: 280,
-      brand: "EyeBlack",
-      category: "Accesories",
-      inStock: true,
-      images: [
-        {
-          id: 1,
-          image:
-            "https://m.media-amazon.com/images/I/61FVYF-uMuL._AC_SX679_.jpg",
-        },
-        {
-          id: 2,
-          image:
-            "https://m.media-amazon.com/images/I/51xrWKsnobL._AC_SX679_.jpg",
-        },
-        {
-          id: 3,
-          image:
-            "https://m.media-amazon.com/images/I/61FNPZmJ+hL._AC_SX679_.jpg",
-        },
-        
-      ],
-      reviews: [],
-    },
     {
       id: "6529c3e61a6c5d7c8233069f",
       name: 'BEACE Sweatbands Sports Headband for Men & Wome',
@@ -460,34 +430,5 @@ export const products = [
         },
       ],
       reviews: [],
-    },
-    {
-      id: "6503b7f82e9b6a7f6123041",
-      name: " Amazfit Active Smart Watch",
-      description:
-       "Amazfit Active Smart Watch 42mm,Fitness Watch for Android & iPhone,Black",
-      price: 8839,
-      brand: "AmazFit",
-      category: "Wearable",
-      inStock: true,
-      images: [
-        {
-          id: 1,
-          image:
-            "https://images-cdn.ubuy.com.ph/66ff54def31451517f14df43-amazfit-active-smart-watch-42mm-fitness.jpg",
-        },
-        {
-          id: 2,
-          image:
-            "https://images-cdn.ubuy.com.ph/66ff54def31451517f14df49-amazfit-active-smart-watch-42mm-fitness.jpg",
-        },
-        {
-          id: 3,
-          image:
-            "https://images-cdn.ubuy.com.ph/66ff54def31451517f14df46-amazfit-active-smart-watch-42mm-fitness.jpg",
-        },
-      ],
-      reviews: [
-      ],
     },
   ];

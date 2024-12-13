@@ -108,6 +108,7 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "images-cdn.ubuy.com.ph"
       },
+      {
         hostname: "www.everythingtrackandfield.com"
       },
 
@@ -123,11 +124,6 @@ const nextConfig: NextConfig = {
 
       {
         protocol: "https",
-        hostname: "m.media-amazon.com"
-      },
-
-      {
-        protocol: "https",
         hostname: "images-cdn.ubuy.com.ph"
       },
 
@@ -139,21 +135,6 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "wunderarmour.scene7.com"
-      },
-
-      {
-        protocol: "https",
-        hostname: "m.media-amazon.com"
-      },
-
-      {
-        protocol: "https",
-        hostname: "m.media-amazon.com"
-      },
-
-      {
-        protocol: "https",
-        hostname: "m.media-amazon.com"
       },
       // {
       //   protocol: "https",

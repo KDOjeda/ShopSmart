@@ -20,7 +20,7 @@ const CartClient = () => {
         <div className="text-2xl">Your Cart Is Empty</div>
         <div>
             <Link
-                href={"/"}
+                href={"/product_list"}
                 className="text-slate-500 flex items-center gap-1 mt-2"
             >
                 <MdArrowBack/>

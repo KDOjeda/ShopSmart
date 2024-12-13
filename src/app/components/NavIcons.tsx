@@ -3,7 +3,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { BiUser } from 'react-icons/bi'
 import ShowCart from './ShowCart'
-import { TiShoppingCart } from 'react-icons/ti'
 import Link from 'next/link'
 import { auth } from '@/app/firebase/config';
 import { signOut } from "firebase/auth";
@@ -47,15 +46,7 @@ const NavIcons = () => {
       )}
       <div className="relative cursor-pointer">
         <ShowCart/> 
-      </div>
-      <div className="relative cursor-pointer" ref={closeIconModal}>
-        <TiShoppingCart onClick={() => setIsCartOpen((prev) => !prev)} />
-        <div className="bg-white rounded-full absolute top-0 right-0 w-[16px] h-[16px] text-[11px] text-emerald-600 font-extrabold grid place-items-center translate-x-1 -translate-y-1">0</div>
-        {isCartOpen && <ShowCart/>}
-        
-        
-
-        </div>  
+      </div> 
 
         <button  onClick={() => 
          {
