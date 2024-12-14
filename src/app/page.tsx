@@ -83,17 +83,20 @@ const MainPage = () => {
   </section>
 
   {/* Center Section - Categories */}
-  <section className="flex flex-wrap  p-1 shadow-md rounded-lg mt-1 sticky top-0 z-10 justify-center">
-    <ul className="flex flex-wrap justify-center space-x-6">
-      {categories.map((category, index) => (
-        <li key={index} className="text-gray-700 py-2">
-          <Link href={`/pages/${category.replace(/\s+/g, '')}`} className="text-green-500 hover:text-teal-800">
-            {category}
-          </Link>
-        </li>
-      ))}
-    </ul>
-  </section>
+  <section className="flex flex-wrap p-1 shadow-md rounded-lg mt-1 sticky top-0 z-10 justify-center">
+  <ul className="flex flex-wrap justify-center space-x-6">
+    {categories.map((category, index) => (
+      <li key={index} className="text-gray-700 py-2">
+        <Link 
+          href={`/product_list?category=${category.replace(/\s+/g, '')}`} 
+          className="text-green-500 hover:text-teal-800"
+        >
+          {category}  
+        </Link>
+      </li>
+    ))}
+  </ul>
+</section>
 </main>
 
  {/* Floating Chat Icon */}
