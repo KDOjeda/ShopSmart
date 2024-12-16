@@ -136,6 +136,132 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "wunderarmour.scene7.com"
       },
+
+      {
+        protocol: "https",
+        hostname: "assets.adidas.com"
+      },
+
+      {
+        protocol: "https",
+        hostname: "static.nike.com"
+      },
+
+      {
+        protocol: "https",
+        hostname: "m.media-amazon.com"
+      },
+
+      {
+        protocol: "https",
+        hostname: "underarmour.scene7.com"
+      },
+
+      {
+        protocol: "https",
+        hostname: "static.nike.com"
+      },
+
+      
+      {
+        protocol: "https",
+        hostname: "i.ebayimg.com"
+      },
+
+      {
+        protocol: "https",
+        hostname: "ninjoo.com"
+      },
+
+      {
+        protocol: "https",
+        hostname: "chrissports.com"
+      },
+
+      {
+        protocol: "https",
+        hostname: "i.ebayimg.com"
+      },
+
+      
+      {
+        protocol: "https",
+        hostname: "www.trxtraining.com"
+      },
+
+      
+      {
+        protocol: "https",
+        hostname: "powerblock.com"
+      },
+
+      {
+        protocol: "https",
+        hostname: "webapi-prod.technogym.com"
+      },
+
+      {
+        protocol: "https",
+        hostname: "target.scene7.com"
+      },
+
+      {
+        protocol: "https",
+        hostname: "www.insportline.cz"
+      },
+
+      {
+        protocol: "https",
+        hostname: "yeti-web.imgix.net"
+      },
+
+      {
+        protocol: "https",
+        hostname: "assets.adidas.com"
+      },
+
+      {
+        protocol: "https",
+        hostname: "images.puma.com"
+      },
+
+      {
+        protocol: "https",
+        hostname: "underarmour.scene7.com"
+      },
+
+      
+      {
+        protocol: "https",
+        hostname: "i5.walmartimages.com"
+      },
+
+      {
+        protocol: "https",
+        hostname: "i.ebayimg.com"
+      },
+
+      {
+        protocol: "https",
+        hostname: "product-cdn-frz.alltricks.com"
+      },
+
+      
+      {
+        protocol: "https",
+        hostname: "dynamic.zacdn.com"
+      },
+
+
+
+
+
+
+
+
+
+
+
       // {
       //   protocol: "https",
       //   hostname: " "
