@@ -5,11 +5,11 @@ import { products } from '../../../../productdb/products';
 import RelatedItems from '@/app/components/RelatedItems';
 import ProductDetails from './ProductDetails';
 
-interface IPrams {
+interface IParams {
     productId?: string;
 }
 
-const Product = ({params} : {params: IPrams}) => {
+const Product = ({params} : {params: IParams}) => {
 
     console.log("params", params);
 
