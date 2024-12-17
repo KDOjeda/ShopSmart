@@ -3,6 +3,10 @@ import Menu from "./Menu";
 import SearchBar from "./SearchBar";
 import NavIcons from "./NavIcons";
 import styles from "./navbar.module.css";
+import ShowCart from "./ShowCart";
+import { signOut } from "firebase/auth";
+import { TbLogout } from "react-icons/tb";
+import { auth } from "../firebase/config";
 
 const NavBar = () => {
   return (
@@ -15,7 +19,15 @@ const NavBar = () => {
             ShopSmart
           </div>
         </Link>
+        <ShowCart/>
         <Menu />
+        <button  onClick={() => 
+         {
+          signOut(auth)
+          sessionStorage.removeItem('user')
+        
+         } }> <TbLogout className=' text-red-500' />
+               </button>
       </div>
       {/* DESKTOP */}
       <div className="  hidden md:flex items-center justify-between gap-8 h-full">
