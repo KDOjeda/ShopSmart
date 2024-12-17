@@ -5,12 +5,11 @@ import { products } from '../../../../productdb/products';
 import RelatedItems from '@/app/components/RelatedItems';
 import ProductDetails from './ProductDetails';
 
-// Define the params type
 interface IParams {
-    productId: string; // Ensure this matches the dynamic route parameter name
+    productId: string;
 }
 
-// Page component (no need for async or Promise wrapping)
+// The page component does not need to be async
 export default function ProductDetailsPage({ params }: { params: IParams }) {
     console.log('Params:', params);
 
