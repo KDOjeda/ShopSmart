@@ -28,7 +28,7 @@ const NavBar = () => {
           <div className="hidden xl:flex gap-3 font-semibold text-base">
             <Link className="navbar_link relative" href="/">HOME</Link>
             <Link className="navbar_link relative" href="/product_list">SHOP</Link>
-            <Link className="navbar_link relative" href="/pages/syd">MY PURCHASES</Link> 
+            <Link className="navbar_link relative" href="/purchases">MY PURCHASES</Link> 
           </div>
         </div>
         <div className="w-2/3 xl:w-1/2 flex items-center justify-between gap-8">
