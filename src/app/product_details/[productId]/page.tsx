@@ -1,17 +1,19 @@
-// This file should be a Server Component by default in the App Directory
-
+// "use client"; // Not needed for this example, we're handling it on the server side
 import Container from '@/app/components/Container';
 import ListRating from './ListRating';
 import { products } from '../../../../productdb/products';
 import RelatedItems from '@/app/components/RelatedItems';
 import ProductDetails from './ProductDetails';
 
-// This will receive params as props automatically from Next.js
-export default async function ProductDetailsPage({ params }: { params: { productId: string } }) {
-  // Fetching product from params
-  const { productId } = params;
+type Params = Promise<{ productId: string }>;
 
-  // Find the product from your products array
+export default async function ProductDetailsPage({ params }: { params: Params }) {
+  // Handle the async operation for params
+  const resolvedParams = await params;  // Await the Promise to get actual params
+
+  const { productId } = resolvedParams;
+
+  // Find the product based on the productId
   const product = products.find((item) => item.id === productId);
 
   // Handle case where the product is not found
