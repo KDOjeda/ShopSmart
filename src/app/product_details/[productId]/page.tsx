@@ -1,17 +1,16 @@
-// "use client"; // Not needed for this example, we're handling it on the server side
+// Import necessary components
 import Container from '@/app/components/Container';
 import ListRating from './ListRating';
 import { products } from '../../../../productdb/products';
 import RelatedItems from '@/app/components/RelatedItems';
 import ProductDetails from './ProductDetails';
 
-type Params = Promise<{ productId: string }>;
+// The async function receives params directly, and we're going to await it to resolve
+export default async function ProductDetailsPage({ params }: { params: { productId: string } }) {
+  // Await params (if Next.js doesn't resolve it automatically, which it should in this case)
+  const resolvedParams = await params;
 
-export default async function ProductDetailsPage({ params }: { params: Params }) {
-  // Handle the async operation for params
-  const resolvedParams = await params;  // Await the Promise to get actual params
-
-  const { productId } = resolvedParams;
+  const { productId } = resolvedParams;  // Extract productId from resolved params
 
   // Find the product based on the productId
   const product = products.find((item) => item.id === productId);
