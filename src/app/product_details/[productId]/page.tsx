@@ -6,15 +6,10 @@ import RelatedItems from '@/app/components/RelatedItems';
 import ProductDetails from './ProductDetails';
 
 interface IParams {
-    productId: string; // Ensure productId is required
+    productId: string;
 }
 
-// Explicitly type the props
-interface ProductPageProps {
-    params: IParams;
-}
-
-const Product: React.FC<ProductPageProps> = ({ params }) => {
+export default function Product({ params }: { params: IParams }) {
     console.log('params', params);
 
     const product = products.find((item) => item.id === params.productId);
@@ -30,9 +25,8 @@ const Product: React.FC<ProductPageProps> = ({ params }) => {
             </Container>
         </div>
     );
-};
+}
 
-export default Product;
 
 
 // {/* <div className='px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 relative flex flex-col lg:flex-row gap-16'>
