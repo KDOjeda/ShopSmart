@@ -9,12 +9,13 @@ interface IParams {
     productId: string;
 }
 
-// The page component does not need to be async
-export default function ProductDetailsPage({ params }: { params: IParams }) {
-    console.log('Params:', params);
+// Mark the function as async to await params
+export default async function ProductDetailsPage({ params }: { params: IParams }) {
+    // Await params before using
+    const { productId } = await params;  // Await the params
 
-    // Find the product
-    const product = products.find((item) => item.id === params.productId);
+    // Find the product based on the productId from params
+    const product = products.find((item) => item.id === productId);
 
     // Handle product not found
     if (!product) {
