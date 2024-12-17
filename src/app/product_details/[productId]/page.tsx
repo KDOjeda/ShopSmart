@@ -7,23 +7,15 @@ import ProductDetails from './ProductDetails';
 
 // Define the params type
 interface IParams {
-    productId: string;
+    productId: string; // Ensure this matches the dynamic route parameter name
 }
 
-// Wrap the props in a Promise
-export default async function ProductDetailsPage({ params }: { params: IParams }) {
-    // Simulate an async operation (e.g., fetching params)
-    const getParams = async () => {
-        return new Promise<IParams>((resolve) => {
-            setTimeout(() => resolve(params), 1000); // Simulate delay
-        });
-    };
-
-    const resolvedParams = await getParams();
-    console.log('Resolved Params:', resolvedParams);
+// Page component (no need for async or Promise wrapping)
+export default function ProductDetailsPage({ params }: { params: IParams }) {
+    console.log('Params:', params);
 
     // Find the product
-    const product = products.find((item) => item.id === resolvedParams.productId);
+    const product = products.find((item) => item.id === params.productId);
 
     // Handle product not found
     if (!product) {
