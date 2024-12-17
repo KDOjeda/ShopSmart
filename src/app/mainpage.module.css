@@ -22,6 +22,8 @@
 
 
 
+
+
 .categorySection:hover {
   transform: scale(1.05);
 }
@@ -261,4 +263,37 @@ background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/s
   color: black;
   
 
+
+
+
+
 }
+
+@media screen and (max-width: 746px) {
+  .right{
+    display: none;
+  }
+
+  .punch{
+    margin-top: 100px;
+  }
+}
+
+
+
+
+/* .middle{
+  display: inline-block; 
+}
+
+
+.categoryContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem; 
+}
+.productCard {
+  display: flex;
+  flex-direction: column; 
+  width: 100%; 
+} */

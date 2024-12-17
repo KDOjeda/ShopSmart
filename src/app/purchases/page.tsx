@@ -1,14 +1,10 @@
-"use client"
-
+"use client";
 import { useEffect, useState } from "react";
-import Link from 'next/link';
 import styles from '../purchases/main.module.css';
 import Image from 'next/image';
-import { FaTruck } from "react-icons/fa";
-import { FaCheckCircle } from "react-icons/fa";
+import { FaBox, FaCheckCircle, FaTruck } from "react-icons/fa";
 import { TbTruckDelivery } from "react-icons/tb";
-import { FaBox } from "react-icons/fa";
-import { FaStar } from 'react-icons/fa';
+import { formatPrice } from "../../../productdb/formatPrice";
 
 const OrderTracking = () => {
   const [orders, setOrders] = useState<any[]>([]);
@@ -25,89 +21,46 @@ const OrderTracking = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.orderDetails2}>Your Order Details</h1>
+      <section>
+        <h1 className={`${styles.title} ${styles.hero}`}>
+          My Purchases
+        </h1>
+      </section>
 
-      <div className={styles.Placed}>
-        <h2 className={styles.orderStatus2}>Order Status Updates</h2>
-        <p className={styles.orderStatus}>
-          Sign Up for text messages, we'll send your order updates.
-        </p>
-        <Link className={styles.SignUp} href="/signup">Sign Up</Link>
-      </div>
-
-      <div className={styles.stepstatus}>
-        <ul className="steps">
-          <li className="step step-primary">Ordered <FaCheckCircle className='text-[25px]' /></li>
-          <li className="step step-primary">In Transit <FaTruck className='text-[25px]' /></li>
-          <li className="step">Out For Delivery <TbTruckDelivery className='text-[25px]' /></li>
-          <li className="step">Delivered <FaBox className='text-[25px]' /></li>
+      {/* Keep the order tracking steps consistent across all devices */}
+      <div className="flex justify-center items-center my-14">
+        <ul className="steps steps-horizontal w-full">
+          <li className="step step-primary text-sm">Ordered <FaCheckCircle className="text-[25px]" /></li>
+          <li className="step step-primary text-sm">In Transit <FaTruck className="text-[25px]" /></li>
+          <li className="step text-sm">Out For Delivery <TbTruckDelivery className="text-[25px]" /></li>
+          <li className="step text-sm">Delivered <FaBox className="text-[25px]" /></li>
         </ul>
       </div>
 
-      <div className={styles.orderList}>
+      {/* Use a grid with fixed columns on all devices */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mx-5">
         {/* Iterate through all orders and display each one */}
         {orders.map((order: any) => (
-          <div key={order.id} className={styles.flipCard}>
-            <div className={styles.flipCardInner}>
-              <div className={styles.flipCardFront}>
-                <div className={styles.imageContainer}>
-                  <Image
-                    src={order.products[0].selectedImg.image} // Use the first product image for the order card
-                    alt={`Image of order ${order.id}`}
-                    width={300}
-                    height={300}
-                    className={styles.orderImage}
-                  />
-                </div>
-                <div className={styles.orderDetails}>
-                  <h2 className={styles.orderId}>Tracking Number: {order.id}</h2>
-                  <p className={styles.status}>
-                    Status: <span className={styles[order.status.toLowerCase().replace(' ', '-')]}>{order.status}</span>
-                  </p>
-                  <p className={styles.estimatedDelivery}>Estimated Delivery: {order.estimatedDelivery}</p>
-                  <div className={styles.rating}>
-                    Rating: 
-                    {order.products.map((product: any, index: number) => (
-                      <div key={index}>
-                        {product.rating !== null ? (
-                          Array.from({ length: 5 }, (_, i) => (
-                            <FaStar 
-                              key={i} 
-                              className={i < product.rating ? styles.filledStar : styles.emptyStar} 
-                            />
-                          ))
-                        ) : "Not Rated Yet"}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-              <div className={styles.flipCardBack}>
-                <h2 className={styles.orderId}>Product Description</h2>
-                {order.products.map((product: any) => (
-                  <div key={product.id}>
-                    <p className={styles.description}>{product.description}</p>
-                  </div>
-                ))}
-              </div>
+          <div key={order.id} className="bg-white rounded-lg shadow-lg p-4">
+            <div className={styles.imageContainer}>
+              <Image
+                src={order.products[0].selectedImg.image}
+                alt={`Image of order ${order.id}`}
+                width={300}
+                height={300}
+                className={styles.orderImage}
+              />
+            </div>
+            <div className={styles.orderDetails}>
+              <h2 className={styles.orderId}>Tracking Number: {order.id}</h2>
+              <p className={styles.status}>
+                Status: <span className={styles[order.status.toLowerCase().replace(' ', '-')]}>{order.status}</span>
+              </p>
+              <p className={styles.estimatedDelivery}>Estimated Delivery: {order.estimatedDelivery}</p>
+              <div className="text-2xl text-green-500 font-bold mt-5">{formatPrice(order.totalAmount)}</div>
             </div>
           </div>
         ))}
-      </div>
-
-      <div className={styles.checkout}>
-        <h2>Order Summary:</h2>
-        {orders.map((order: any) => (
-          <div key={order.id}>
-            <p>Subtotal: ${order.totalAmount}</p>
-            <p>Parcel Shipping: $10.00</p>
-            <p>Tax: $10.00</p>
-            <p>Total: ${order.totalAmount + 20.00}</p>
-          </div>
-        ))}
-        <Link href="/pages/checkoutInfo">
-          <button className={styles.checkoutButton}>Checkout</button>
-        </Link>
       </div>
     </div>
   );

@@ -65,183 +65,156 @@ useEffect(() => {
 
 
 
-  return (
-    <>
- <main className='flex flex-col mt-20 '>
- {/* <button onClick={() => 
- {
-  signOut(auth)
-  sessionStorage.removeItem('user')
-
- } }>log out</button> */}
-  <section className={`text-black text-center py-5 ${styles.hero}`}>
-    <h1 className="text-4xl font-bold mb-5  ">Welcome to Our Sports Store!</h1>
-    
-    <p className="text-lg pt-9">Your one-stop destination for all your sporting needs.</p>
-
-    
-
-  </section>
-
-  {/* Center Section - Categories */}
-  <section className="flex flex-wrap p-1 shadow-md rounded-lg mt-1 sticky top-0 z-10 justify-center">
-  <ul className="flex flex-wrap justify-center space-x-6">
-    {categories.map((category, index) => (
-      <li key={index} className="text-gray-700 py-2">
-        <Link 
-          href={`/product_list?category=${category.replace(/\s+/g, '')}`} 
-          className="text-green-500 hover:text-teal-800"
-        >
-          {category}  
-        </Link>
-      </li>
-    ))}
-  </ul>
+return (
+  <>
+    <main className='flex flex-col mt-20'>
+      {/* Welcome Section */}
+      <section className={`text-black text-center py-5 ${styles.hero}`}>
+  <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-5">
+    Welcome to Our Sports Store!
+  </h1>
+  <p className={`text-base mt-7  sm:text-lg md:text-xl pt-4 sm:pt-6 md:pt-9  ${styles.punch}`}>
+    Your one-stop destination for all your sporting needs.
+  </p>
 </section>
-</main>
 
- {/* Floating Chat Icon */}
- <div
-        className=" z-10 fixed bottom-5 right-5 bg-green-400 text-white rounded-full p-4 shadow-xl cursor-pointer hover:bg-teal-800 position-sticky"
+
+      {/* Categories Section */}
+      <section className="flex flex-wrap justify-center p-4 shadow-md rounded-lg mt-1 sticky top-0 z-10">
+        <ul className="flex flex-wrap justify-center space-x-6">
+          {categories.map((category, index) => (
+            <li key={index} className="text-gray-700 py-2">
+              <Link href={`/product_list?category=${category.replace(/\s+/g, '')}`} className="text-green-500 hover:text-teal-800">
+                {category}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* Floating Chat Icon */}
+      <div
+        className="z-10 fixed bottom-5 right-5 bg-green-400 text-white rounded-full p-4 shadow-xl cursor-pointer hover:bg-teal-800"
         onClick={() => alert("Chat with us!") /* Replace with chat functionality */}
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={2}
-          stroke="currentColor"
-          className="w-6 h-6"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M8 10h8m-8 4h6m-7.5-8h10a2.5 2.5 0 012.5 2.5v10a2.5 2.5 0 01-2.5 2.5h-7l-4 4V6.5A2.5 2.5 0 016.5 4h.5z"
-          />
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M8 10h8m-8 4h6m-7.5-8h10a2.5 2.5 0 012.5 2.5v10a2.5 2.5 0 01-2.5 2.5h-7l-4 4V6.5A2.5 2.5 0 016.5 4h.5z" />
         </svg>
       </div>
- 
-<main className={`flex min-h-screen bg-gray-100 relative overflow-hidden ${styles.background}`}>
-      
+
+      <div className={`flex min-h-screen bg-gray-100 relative overflow-hidden ${styles.background}`}>
+        
         {/* Middle Section - Popular Categories */}
-        <section className={`  flex-1 mx-4 p-6 shadow-md rounded-lg m-5 ${styles.middle}`}>
-          <h2 className="text-2xl font-bold mb-4 text-black">Popular Categories</h2>
-          <div className={styles.categoryContainer}>
-            {categories.map((category, index) => (
-              <div key={index} className={styles.categoryCard}>
-                <h3 className="text-xl text-black font-semibold mb-4">{category}</h3>
-                <div>
-                  {category === "Apparel" || category === "Footwear" || category === "Accessories" 
-                  || category === "Wearables" || category === "Equipment" || category === "Bags & Storage" || category === "Facilities & Setup"? (
-                    <div className={styles.productGrid}>
-                      {products.filter(product => product.category === category).map((product) => (
-                                <Link key={product.id} href={`/pages/${category.replace(/\s+/g, '')}/${product.id}`} passHref>
-                                <div className={`${styles.productCard} ${styles.animateFadeIn}`}>
-                                  <img  
-                                    src={product.mainImage}
-                                    alt={product.name}
-                                    className={`${styles.productImage} ${styles.image}`}
-                                  />
-                                  <p className="text-start text-black mt-2">{product.name}</p>
-                                  <p className="text-start text-black">{product.price}</p>
-                                </div>
-                              </Link>
-                      ))}
-                    </div>
-                  ) : (
-                    products.filter(product => product.category === category).map((product) => (
-                      <div key={product.id} className={`${styles.productCard} ${styles.animateFadeIn}`}>
-                        <img
-                          src={product.mainImage}
-                          alt={product.name}
-                          className={styles.productImage}
-                        />
-                        <p className="text-start mt-2">{product.name}</p>
-                        <p className="text-start text-gray-600">{product.price}</p>
-                      </div>
-                    ))
-                  )}
+        <section className="flex-1 mx-4 p-6 shadow-md rounded-lg m-5">
+  <h2 className="text-2xl font-bold mb-4 text-black">Popular Categories</h2>
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    {categories.map((category, index) => (
+      <div key={index} className="bg-white shadow-md p-4 rounded-lg">
+        <h3 className="text-xl text-black font-semibold mb-4">{category}</h3>
+        <div className="grid grid-cols-1 gap-4">
+          {products
+            .filter((product) => product.category === category)
+            .map((product) => (
+              <Link
+                key={product.id}
+                href={`/pages/${category.replace(/\s+/g, '')}/${product.id}`}
+                passHref
+              >
+                <div className="flex flex-col items-start">
+                  <div className="w-full h-48 bg-white rounded overflow-hidden">
+                    <img
+                      src={product.mainImage}
+                      alt={product.name}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <p className="mt-2 text-black">{product.name}</p>
+                  <p className="text-gray-600">{product.price}</p>
                 </div>
-              </div>
+              </Link>
             ))}
-          </div>
-        </section>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
 
-        {/* Right Section - Featured Product */}
-        <section className={`w-1/4 bg-white p-6 shadow-md rounded-lg relative m-5  ${styles.right}`}>
-          <h2 className="text-2xl font-bold mb-4">Featured Product</h2>
-          <div className="relative w-full h-80 bg-white rounded-lg shadow-lg flex flex-col items-center justify-center">
-            {currentProduct.mainImage ? (
-              <img
-                src={currentProduct.mainImage}
-                alt={currentProduct.name}
-                className="w-full h-2/3 object-contain rounded-t-lg"
-              />
-            ) : (
-              <div className="w-full h-2/3 bg-gray-300 rounded-t-lg"></div>
-            )}
-            <div className="p-4 text-center">
-              <h3 className="text-lg font-bold">{currentProduct.name || "Product Name Unavailable"}</h3>
-              <p className="text-gray-600">{currentProduct.price || "Price Unavailable"}</p>
-            </div>
-          </div>
 
-          <ul className="list-none space-y-4 text-md mt-3">
-            <li className="flex items-center">
-              <img src="images\checkicon.png" alt="check" className="w-6 h-6 mr-2" />
-              High-quality products tailored for athletes.
-            </li>
-            <li className="flex items-center">
-              <img src="images\checkicon.png" alt="check" className="w-6 h-6 mr-2" />
-              Affordable prices without compromising performance.
-            </li>
-            <button className="mt-6 px-4 py-2 bg-green-500 text-white rounded hover:bg-red-600">
-              <Link href="/pages/product">Shop Now</Link>
-            </button>
-          </ul>
+{/* Right Section - Featured Product */}
+<section className={`w-full sm:w-1/3 md:w-1/4 bg-white p-6 shadow-md rounded-lg relative m-5 ${styles.right} sm:mt-6 sm:order-first`}>
+  <h2 className="text-2xl font-bold mb-4">Featured Product</h2>
+  <div className="relative w-full h-80 bg-white rounded-lg shadow-lg flex flex-col items-center justify-center">
+    {currentProduct.mainImage ? (
+      <img src={currentProduct.mainImage} alt={currentProduct.name} className="w-full h-2/3 object-contain rounded-t-lg" />
+    ) : (
+      <div className="w-full h-2/3 bg-gray-300 rounded-t-lg"></div>
+    )}
+    <div className="p-4 text-center">
+      <h3 className="text-lg font-bold">{currentProduct.name || "Product Name Unavailable"}</h3>
+      <p className="text-gray-600">{currentProduct.price || "Price Unavailable"}</p>
+    </div>
+  </div>
 
-          <div className="bg-white p-6 mt-6 rounded-lg shadow-xl testimonials">
-            <h3 className="text-2xl font-bold mb-4">What Our Customers Say</h3>
-            <div className="testimonials-container">
-              <div className="testimonial-card">
-                <p className="italic">"The best sports store I've ever shopped at! Great quality and amazing customer service."</p>
-                <p className="text-sm text-gray-600">- Jane D.</p>
-              </div>
-              <div className="testimonial-card">
-                <p className="italic">"Absolutely love their collection! The products are durable and worth the price."</p>
-                <p className="text-sm text-gray-600">- Mark P.</p>
-              </div>
-              <div className="testimonial-card">
-                <p className="italic">"Fast delivery and top-notch products. Highly recommended!"</p>
-                <p className="text-sm text-gray-600">- Lucy K.</p>
-              </div>
-            </div>
-          </div>
+  {/* Product Details */}
+  <ul className="list-none space-y-4 text-md mt-3">
+    <li className="flex items-center">
+      <img src="images/checkicon.png" alt="check" className="w-6 h-6 mr-2" />
+      High-quality products tailored for athletes.
+    </li>
+    <li className="flex items-center">
+      <img src="images/checkicon.png" alt="check" className="w-6 h-6 mr-2" />
+      Affordable prices without compromising performance.
+    </li>
+    <button className="mt-6 px-4 py-2 bg-green-500 text-white rounded hover:bg-red-600">
+      <Link href="/pages/product">Shop Now</Link>
+    </button>
+  </ul>
 
-          {/* Frequently Asked Questions Section */}
-          <div className="bg-white p-6 mt-6 rounded-lg shadow-xl text-gray-800 faqs">
-            <h3 className="text-2xl font-bold mb-4">Frequently Asked Questions</h3>
-            <div className="faq-item">
-              <h4 className="font-semibold text-lg mb-2">Q: Do you ship internationally?</h4>
-              <p className="text-gray-700">A: Currently, we only ship within the Philippines. Stay tuned for future updates!</p>
-            </div>
-            <div className="faq-item">
-              <h4 className="font-semibold text-lg mb-2">Q: Can I return or exchange an item?</h4>
-              <p className="text-gray-700">A: Yes, we have a 30-day return policy for unused items in their original packaging.</p>
-            </div>
-            <div className="faq-item">
-              <h4 className="font-semibold text-lg mb-2">Q: Are your products covered by warranty?</h4>
-              <p className="text-gray-700">A: Many of our products include a 1-year warranty. Check the product page for details.</p>
-            </div>
-            <div className="faq-item">
-              <h4 className="font-semibold text-lg mb-2">Q: How can I contact customer support?</h4>
-              <p className="text-gray-700">A: You can reach us via email or phone, available 24/7 for your convenience.</p>
-            </div>
-          </div>
-        </section>
-      </main>
-    </>
-  );
+  {/* Testimonials Section */}
+  <div className="bg-white p-6 mt-6 rounded-lg shadow-xl testimonials">
+    <h3 className="text-2xl font-bold mb-4">What Our Customers Say</h3>
+    <div className="testimonials-container">
+      <div className="testimonial-card">
+        <p className="italic">"The best sports store I've ever shopped at! Great quality and amazing customer service."</p>
+        <p className="text-sm text-gray-600">- Jane D.</p>
+      </div>
+      <div className="testimonial-card">
+        <p className="italic">"Absolutely love their collection! The products are durable and worth the price."</p>
+        <p className="text-sm text-gray-600">- Mark P.</p>
+      </div>
+      <div className="testimonial-card">
+        <p className="italic">"Fast delivery and top-notch products. Highly recommended!"</p>
+        <p className="text-sm text-gray-600">- Lucy K.</p>
+      </div>
+    </div>
+  </div>
+
+  {/* FAQ Section */}
+  <div className="bg-white p-6 mt-6 rounded-lg shadow-xl text-gray-800 faqs">
+    <h3 className="text-2xl font-bold mb-4">Frequently Asked Questions</h3>
+    <div className="faq-item">
+      <h4 className="font-semibold text-lg mb-2">Q: Do you ship internationally?</h4>
+      <p className="text-gray-700">A: Currently, we only ship within the Philippines. Stay tuned for future updates!</p>
+    </div>
+    <div className="faq-item">
+      <h4 className="font-semibold text-lg mb-2">Q: Can I return or exchange an item?</h4>
+      <p className="text-gray-700">A: Yes, we have a 30-day return policy for unused items in their original packaging.</p>
+    </div>
+    <div className="faq-item">
+      <h4 className="font-semibold text-lg mb-2">Q: Are your products covered by warranty?</h4>
+      <p className="text-gray-700">A: Many of our products include a 1-year warranty. Check the product page for details.</p>
+    </div>
+    <div className="faq-item">
+      <h4 className="font-semibold text-lg mb-2">Q: How can I contact customer support?</h4>
+      <p className="text-gray-700">A: You can reach us via email or phone, available 24/7 for your convenience.</p>
+    </div>
+  </div>
+</section>
+
+      </div>
+    </main>
+  </>
+);
 };
 
 export default MainPage;
