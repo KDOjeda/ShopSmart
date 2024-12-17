@@ -1,34 +1,39 @@
 import Container from '@/app/components/Container';
-import React from 'react'
+import React from 'react';
 import ListRating from './ListRating';
 import { products } from '../../../../productdb/products';
 import RelatedItems from '@/app/components/RelatedItems';
 import ProductDetails from './ProductDetails';
 
 interface IParams {
-    productId?: string;
+    productId: string; // Ensure productId is required
 }
 
-const Product = ({params} : {params: IParams}) => {
-
-    console.log("params", params);
-
-    const product = products.find((item) => item.id === params.productId)
-
-  return (
-    <div className='mt-28'>
-        <Container>
-            <ProductDetails product={product}/>
-            <div className='flex flex-col mt-20 gap-4'>
-                <RelatedItems/>
-                <ListRating product={product}/>
-            </div>
-        </Container>
-    </div>
-  )
+// Explicitly type the props
+interface ProductPageProps {
+    params: IParams;
 }
 
-export default Product
+const Product: React.FC<ProductPageProps> = ({ params }) => {
+    console.log('params', params);
+
+    const product = products.find((item) => item.id === params.productId);
+
+    return (
+        <div className="mt-28">
+            <Container>
+                <ProductDetails product={product} />
+                <div className="flex flex-col mt-20 gap-4">
+                    <RelatedItems />
+                    <ListRating product={product} />
+                </div>
+            </Container>
+        </div>
+    );
+};
+
+export default Product;
+
 
 // {/* <div className='px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 relative flex flex-col lg:flex-row gap-16'>
           
