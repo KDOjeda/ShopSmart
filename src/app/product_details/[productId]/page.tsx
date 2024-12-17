@@ -5,14 +5,21 @@ import { products } from '../../../../productdb/products';
 import RelatedItems from '@/app/components/RelatedItems';
 import ProductDetails from './ProductDetails';
 
+// Define the params type
 interface IParams {
-    productId: string;
+    productId: string; // Match the folder name [productid] EXACTLY
 }
 
-export default function Product({ params }: { params: IParams }) {
-    console.log('params', params);
+// Ensure the correct typing for params in a Next.js dynamic route
+export default function ProductDetailsPage({ params }: { params: IParams }) {
+    console.log('params:', params);
 
+    // Find the product based on the productid from params
     const product = products.find((item) => item.id === params.productId);
+
+    if (!product) {
+        return <div className="mt-28 text-center">Product not found!</div>;
+    }
 
     return (
         <div className="mt-28">
