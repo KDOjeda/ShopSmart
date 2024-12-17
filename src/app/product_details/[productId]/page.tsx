@@ -5,12 +5,15 @@ import { products } from '../../../../productdb/products';
 import RelatedItems from '@/app/components/RelatedItems';
 import ProductDetails from './ProductDetails';
 
-// The async function receives params directly, and we're going to await it to resolve
-export default async function ProductDetailsPage({ params }: { params: { productId: string } }) {
-  // Await params (if Next.js doesn't resolve it automatically, which it should in this case)
-  const resolvedParams = await params;
+// Here, `params` will be awaited as a Promise
+type Params = Promise<{ productId: string }>;
 
-  const { productId } = resolvedParams;  // Extract productId from resolved params
+export default async function ProductDetailsPage({ params }: { params: Params }) {
+  // Await the Promise that contains the params
+  const resolvedParams = await params;  // Await params
+
+  // Extract the productId from the resolved params
+  const { productId } = resolvedParams;
 
   // Find the product based on the productId
   const product = products.find((item) => item.id === productId);
