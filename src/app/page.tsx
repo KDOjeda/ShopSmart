@@ -1,11 +1,10 @@
 "use client";
-import React, { useState, useEffect } from "react"
-import Link from "next/link"
-import styles from "./mainpage.module.css"
-import {useAuthState} from 'react-firebase-hooks/auth'
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import styles from "./mainpage.module.css";
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '@/app/firebase/config';
 import { useRouter } from "next/navigation";
-
 
 const MainPage = () => {
   const products = [
@@ -30,216 +29,54 @@ const MainPage = () => {
     { id: 19, name: "Ball Stand", price: "₱800", mainImage: "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcR_VBavVf5msVPJlLkrNmRBndTIcab-Xaez8SK1RqgxFUtpk2_gEWTCrLzVv34V7AK337WmwZX5bYEUeMuyzKg0E8_g1B3_3zQxtFQ-98y45_CBZawaUcGL&usqp=CAE", category: "Bags & Storage" },
     { id: 20, name: "Disk Station", price: "₱800", mainImage: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTTV0gwlQrQE-kjq5f0cisndX4wZaMsSGA-_oJjVeuW8HtwEeMt4yT9xjGtRmu4vUQDhqzHeGDlzjIZXExNVdymH0kGvDQf9yPOOsIWnQN-q7F6FIUlLiVtbQ&usqp=CAE", category: "Bags & Storage" },
     { id: 21, name: "Kicking Net", price: "₱800", mainImage: "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRqIQbOg5WALxqHT7daLWnAKPhCozuTMrNN7Sk75NiDShn1T71GFcrpnQRz3271nJAa8xsSCzQLfqAok7md6dy76GcHfdxxouwdS-fTjwOR&usqp=CAE", category: "Facilities & Setup" },
-    { id: 22, name: "Portable Basketball Net", price: "₱800", mainImage: "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcROZp2YLXcCZJ_8dyXgl5iDS0I6xUpJX7aDhg8tqdxdKHYwBNZWvaTUwY2bOasTIz3eTl6XldrWAGtGWpP9rdP9sU0Se2fKhRhW7ayawtdbPwQEpnbPD4Mx&usqp=CAE", category: "Facilities & Setup" },
-
-
+    { id: 22, name: "Portable Basketball Net", price: "₱800", mainImage: "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSdyfO-1yJhBa7g1PTaeovGm0Kwr6hMJt0HJWeMi_m9qgyijArS19kb_RrG4H6wbqVhZpMl57R1vf8cZdfTxhbBQgzkqvBi2tiA6k_QmMVEu-FRE5Vn5sZOq&usqp=CAE", category: "Facilities & Setup" },
   ];
 
-  const categories = [
-    "Apparel", "Footwear", "Accessories", "Wearables", "Equipment", "Bags & Storage", "Facilities & Setup"
-  ];
+  const [user, loading, error] = useAuthState(auth);
+  const router = useRouter();
 
-  const [currentProductIndex, setCurrentProductIndex] = useState(0);
-  const [showPopup, setShowPopup] = useState(true);
+  const [categoryFilter, setCategoryFilter] = useState("All");
+  const [filteredProducts, setFilteredProducts] = useState(products);
 
   useEffect(() => {
-    if (products.length === 0) return;
+    if (categoryFilter === "All") {
+      setFilteredProducts(products);
+    } else {
+      setFilteredProducts(products.filter((product) => product.category === categoryFilter));
+    }
+  }, [categoryFilter]);
 
-    const interval = setInterval(() => {
-      setCurrentProductIndex((prevIndex) => (prevIndex + 1) % products.length);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const currentProduct = products[currentProductIndex] || {};
-
-  const [user] = useAuthState(auth);
-  const router = useRouter();
-  const userSession = sessionStorage.getItem('user');
-
-
-  if (!user || !userSession){
-    router.push('/sign-up')
-  }
-
+  useEffect(() => {
+    if (!user && !loading) {
+      router.push('/login');
+    }
+  }, [user, loading, router]);
 
   return (
-    <>
- <main className='flex flex-col mt-20 '>
- {/* <button onClick={() => 
- {
-  signOut(auth)
-  sessionStorage.removeItem('user')
-
- } }>log out</button> */}
-  <section className={`text-white text-center py-5 ${styles.hero}`}>
-    <h1 className="text-4xl font-bold mb-2  ">Welcome to Our Sports Store!</h1>
-    
-    <p className="text-lg pt-9">Your one-stop destination for all your sporting needs.</p>
-
-    
-
-  </section>
-
-  {/* Center Section - Categories */}
-  <section className="flex flex-wrap p-1 shadow-md rounded-lg mt-1 sticky top-0 z-10 justify-center">
-  <ul className="flex flex-wrap justify-center space-x-6">
-    {categories.map((category, index) => (
-      <li key={index} className="text-gray-700 py-2">
-        <Link 
-          href={`/product_list?category=${category.replace(/\s+/g, '')}`} 
-          className="text-green-500 hover:text-teal-800"
-        >
-          {category}  
-        </Link>
-      </li>
-    ))}
-  </ul>
-</section>
-</main>
-
- {/* Floating Chat Icon */}
- <div
-        className=" z-10 fixed bottom-5 right-5 bg-green-400 text-white rounded-full p-4 shadow-xl cursor-pointer hover:bg-teal-800 position-sticky"
-        onClick={() => alert("Chat with us!") /* Replace with chat functionality */}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={2}
-          stroke="currentColor"
-          className="w-6 h-6"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M8 10h8m-8 4h6m-7.5-8h10a2.5 2.5 0 012.5 2.5v10a2.5 2.5 0 01-2.5 2.5h-7l-4 4V6.5A2.5 2.5 0 016.5 4h.5z"
-          />
-        </svg>
+    <div>
+      <h1>Welcome to the Sports Store</h1>
+      <div>
+        <button onClick={() => setCategoryFilter("All")}>All</button>
+        <button onClick={() => setCategoryFilter("Apparel")}>Apparel</button>
+        <button onClick={() => setCategoryFilter("Footwear")}>Footwear</button>
+        <button onClick={() => setCategoryFilter("Equipment")}>Equipment</button>
+        <button onClick={() => setCategoryFilter("Bags & Storage")}>Bags & Storage</button>
+        <button onClick={() => setCategoryFilter("Facilities & Setup")}>Facilities & Setup</button>
+        <button onClick={() => setCategoryFilter("Wearables")}>Wearables</button>
+        <button onClick={() => setCategoryFilter("Accessories")}>Accessories</button>
       </div>
- 
-<main className={`flex min-h-screen bg-gray-100 relative overflow-hidden ${styles.background}`}>
-      
-        {/* Middle Section - Popular Categories */}
-        <section className={`  flex-1 mx-4 p-6 shadow-md rounded-lg m-5 ${styles.middle}`}>
-          <h2 className="text-2xl font-bold mb-4 text-white">Popular Categories</h2>
-          <div className={styles.categoryContainer}>
-            {categories.map((category, index) => (
-              <div key={index} className={styles.categoryCard}>
-                <h3 className="text-xl text-white font-semibold mb-4">{category}</h3>
-                <div>
-                  {category === "Apparel" || category === "Footwear" || category === "Accessories" 
-                  || category === "Wearables" || category === "Equipment" || category === "Bags & Storage" || category === "Facilities & Setup"? (
-                    <div className={styles.productGrid}>
-                      {products.filter(product => product.category === category).map((product) => (
-                                <Link key={product.id} href={`/pages/${category.replace(/\s+/g, '')}/${product.id}`} passHref>
-                                <div className={`${styles.productCard} ${styles.animateFadeIn}`}>
-                                  <img  
-                                    src={product.mainImage}
-                                    alt={product.name}
-                                    className={`${styles.productImage} ${styles.image}`}
-                                  />
-                                  <p className="text-start text-black mt-2">{product.name}</p>
-                                  <p className="text-start text-black">{product.price}</p>
-                                </div>
-                              </Link>
-                      ))}
-                    </div>
-                  ) : (
-                    products.filter(product => product.category === category).map((product) => (
-                      <div key={product.id} className={`${styles.productCard} ${styles.animateFadeIn}`}>
-                        <img
-                          src={product.mainImage}
-                          alt={product.name}
-                          className={styles.productImage}
-                        />
-                        <p className="text-start mt-2">{product.name}</p>
-                        <p className="text-start text-gray-600">{product.price}</p>
-                      </div>
-                    ))
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
 
-        {/* Right Section - Featured Product */}
-        <section className={`w-1/4 bg-white p-6 shadow-md rounded-lg relative m-5  ${styles.right}`}>
-          <h2 className="text-2xl font-bold mb-4">Featured Product</h2>
-          <div className="relative w-full h-80 bg-white rounded-lg shadow-lg flex flex-col items-center justify-center">
-            {currentProduct.mainImage ? (
-              <img
-                src={currentProduct.mainImage}
-                alt={currentProduct.name}
-                className="w-full h-2/3 object-contain rounded-t-lg"
-              />
-            ) : (
-              <div className="w-full h-2/3 bg-gray-300 rounded-t-lg"></div>
-            )}
-            <div className="p-4 text-center">
-              <h3 className="text-lg font-bold">{currentProduct.name || "Product Name Unavailable"}</h3>
-              <p className="text-gray-600">{currentProduct.price || "Price Unavailable"}</p>
-            </div>
+      <div className={styles.productGrid}>
+        {filteredProducts.map((product) => (
+          <div key={product.id} className={styles.productCard}>
+            <img src={product.mainImage} alt={product.name} />
+            <h3>{product.name}</h3>
+            <p>{product.price}</p>
+            <Link href={`/product/${product.id}`}>View Details</Link>
           </div>
-
-          <ul className="list-none space-y-4 text-md mt-3">
-            <li className="flex items-center">
-              <img src="images\checkicon.png" alt="check" className="w-6 h-6 mr-2" />
-              High-quality products tailored for athletes.
-            </li>
-            <li className="flex items-center">
-              <img src="images\checkicon.png" alt="check" className="w-6 h-6 mr-2" />
-              Affordable prices without compromising performance.
-            </li>
-            <button className="mt-6 px-4 py-2 bg-green-500 text-white rounded hover:bg-red-600">
-              <Link href="/pages/product">Shop Now</Link>
-            </button>
-          </ul>
-
-          <div className="bg-white p-6 mt-6 rounded-lg shadow-xl testimonials">
-            <h3 className="text-2xl font-bold mb-4">What Our Customers Say</h3>
-            <div className="testimonials-container">
-              <div className="testimonial-card">
-                <p className="italic">"The best sports store I've ever shopped at! Great quality and amazing customer service."</p>
-                <p className="text-sm text-gray-600">- Jane D.</p>
-              </div>
-              <div className="testimonial-card">
-                <p className="italic">"Absolutely love their collection! The products are durable and worth the price."</p>
-                <p className="text-sm text-gray-600">- Mark P.</p>
-              </div>
-              <div className="testimonial-card">
-                <p className="italic">"Fast delivery and top-notch products. Highly recommended!"</p>
-                <p className="text-sm text-gray-600">- Lucy K.</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Frequently Asked Questions Section */}
-          <div className="bg-white p-6 mt-6 rounded-lg shadow-xl text-gray-800 faqs">
-            <h3 className="text-2xl font-bold mb-4">Frequently Asked Questions</h3>
-            <div className="faq-item">
-              <h4 className="font-semibold text-lg mb-2">Q: Do you ship internationally?</h4>
-              <p className="text-gray-700">A: Currently, we only ship within the Philippines. Stay tuned for future updates!</p>
-            </div>
-            <div className="faq-item">
-              <h4 className="font-semibold text-lg mb-2">Q: Can I return or exchange an item?</h4>
-              <p className="text-gray-700">A: Yes, we have a 30-day return policy for unused items in their original packaging.</p>
-            </div>
-            <div className="faq-item">
-              <h4 className="font-semibold text-lg mb-2">Q: Are your products covered by warranty?</h4>
-              <p className="text-gray-700">A: Many of our products include a 1-year warranty. Check the product page for details.</p>
-            </div>
-            <div className="faq-item">
-              <h4 className="font-semibold text-lg mb-2">Q: How can I contact customer support?</h4>
-              <p className="text-gray-700">A: You can reach us via email or phone, available 24/7 for your convenience.</p>
-            </div>
-          </div>
-        </section>
-      </main>
-    </>
+        ))}
+      </div>
+    </div>
   );
 };
 
