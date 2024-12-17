@@ -6,6 +6,7 @@ import { products } from "../../../productdb/products";
 import ProductCard from "../products/ProductCard";
 import Link from "next/link";
 import styles from './mall.module.css'
+import SearchBar from "../components/SearchBar";
 
 const ProductList = () => {
   const searchParams = useSearchParams();
@@ -55,6 +56,9 @@ const ProductList = () => {
         </h2>
       </section>
       
+      <div className="block sm:hidden">
+        <SearchBar/>
+      </div>
 
       {/* Category Filter Section */}
       <section className="flex flex-wrap p-1 rounded-lg mt-1 sticky top-0 z-10 justify-center border-t border-gray-300 shadow-[inset_0_2px_10px_rgba(0,0,0,0.8)] bg-white ">

@@ -42,45 +42,39 @@ const CartClient = () => {
       {/* {Mobile} */}
       <div className="block sm:hidden">
         <Heading title="Shopping Cart" center />
+        
         <div className="mt-8 text-xs font-medium text-gray-600">
-        {cartProducts.map((item) => (
-          <ItemContent key={item.id} item={item} />
-        ))}
+          {cartProducts.map((item) => (
+            <ItemContent key={item.id} item={item} />
+          ))}
         </div>
-        <div className="mt-6 border-t-[1.5px] border-slate-200 pt-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
-          <div className="w-full sm:w-[120px]">
-            <CartButton
-              label="Clear Cart"
-              onClick={handleClearCart}
-              small
-              outline
-            />
+        
+        {/* Subtotal and Checkout Section */}
+        <div className="mt-6 border-t-[1.5px] border-slate-200 pt-6 flex flex-col gap-4 w-full">
+          <div className="flex justify-between w-full text-lg font-semibold text-gray-800">
+            <span>Subtotal</span>
+            <span>{formatPrice(cartTotalAmount)}</span>
+          </div>
+          
+          <p className="text-slate-500 text-sm">
+            Taxes and shipping calculated at checkout
+          </p>
+
+          <div className="w-full">
+            {/* Updated Checkout Button */}
+            <CartButton label="Checkout" onClick={handleCheckout} />
           </div>
 
-          <div className="flex flex-col gap-4 sm:w-full text-sm">
-            <div className="flex justify-between w-full text-lg font-semibold text-gray-800">
-              <span>Subtotal</span>
-              <span>{formatPrice(cartTotalAmount)}</span>
-            </div>
-            <p className="text-slate-500 text-sm">
-              Taxes and shipping calculated at checkout
-            </p>
-
-            <div className="w-full">
-              {/* Updated Checkout Button */}
-              <CartButton label="Checkout" onClick={handleCheckout} />
-            </div>
-
-            <Link
-              href={"/product_list"}
-              className="text-slate-500 flex items-center gap-2 hover:text-green-600 mt-2"
-            >
-              <MdArrowBack />
-              <span>Continue Shopping</span>
-            </Link>
-          </div>
+          <Link
+            href={"/product_list"}
+            className="text-slate-500 flex items-center gap-2 hover:text-green-600 mt-2 w-full"
+          >
+            <MdArrowBack />
+            <span>Continue Shopping</span>
+          </Link>
         </div>
       </div>
+
       {/* {Desktop} */}
       <div className="hidden sm:block container mx-auto px-4 py-8">
         <Heading title="Shopping Cart" center />
