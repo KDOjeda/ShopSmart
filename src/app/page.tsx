@@ -1,88 +1,3 @@
-// "use client";
-// import { useState, useEffect } from "react";
-// import Link from "next/link";
-// import styles from "./mainpage.module.css";
-// import { useAuthState } from 'react-firebase-hooks/auth';
-// import { auth } from '@/app/firebase/config';
-// import { useRouter } from "next/navigation";
-
-// const MainPage = () => {
-//   const products = [
-//     { id: 1, name: "Sports Shirt", price: "₱999", mainImage: "https://transferit.com.ph/pcimages/8064101/176819771/12/1/EFEFEF/prod.png?b=11429348&v=1720481852", category: "Apparel" },
-//     { id: 2, name: "Tennis Racket", price: "₱1,299", mainImage: "https://i5.walmartimages.com/seo/Wilson-Tour-Slam-Lite-Adult-Tennis-Racket-Grip-Size-3-Blue-9-7oz-113-Square-Inch-Head_97600f2e-818f-4720-ad22-8cb915580a62_1.da3c710586195854920e7a5520e0cc7e.jpeg", category: "Equipment" },
-//     { id: 3, name: "Running Shoes", price: "₱799", mainImage: "https://m.media-amazon.com/images/I/613uwSK20XL._AC_SL1002_.jpg", category: "Footwear" },
-//     { id: 4, name: "Cycling Helmet", price: "₱899", mainImage: "https://vader-prod.s3.amazonaws.com/1691599553-specialized-echelon-2-64d3c2bcb614a.jpg", category: "Equipment" },
-//     { id: 5, name: "Smart Watch", price: "₱3,499", mainImage: "https://img.drz.lazcdn.com/static/pk/p/f83d646ed8b48d5648e6457de2667d91.jpg_720x720q80.jpg", category: "Wearables" },
-//     { id: 6, name: "Sports Bag", price: "₱1,099", mainImage: "https://img.freepik.com/premium-photo/pile-sports-equipment-including-tennis-racket-ball-basketball_1026943-749.jpg", category: "Bags" },
-//     { id: 7, name: "Portable Basketball Hoop", price: "₱2,500", mainImage: "https://img.freepik.com/premium-photo/pile-sports-equipment-including-tennis-racket-ball-basketball_1026943-749.jpg", category: "Facilities & Setup" },
-//     { id: 8, name: "Sports Jacket", price: "₱1,499", mainImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlag6Iw1ZbzYzAlzhky4XUKr1AINvi862XqA&s", category: "Apparel" },
-//     { id: 9, name: "Running Shorts", price: "₱699", mainImage: "https://underarmour.scene7.com/is/image/Underarmour/PS1376759-001_HF?rp=standard-0pad|pdpZoomDesktop&scl=0.72&fmt=jpg&qlt=85&resMode=sharp2&cache=on,on&bgc=f0f0f0&wid=1836&hei=1950&size=1500,1500", category: "Apparel" },
-//     { id: 10, name: "Cleats", price: "₱800", mainImage: "https://i5.walmartimages.com/asr/01d2211a-f67e-486a-a5eb-579d3f581053.e1210cfbaffb3b783ded147a8c87d812.jpeg", category: "Footwear" },
-//     { id: 11, name: "Hiking Shoes", price: "₱800", mainImage: "https://contents.mediadecathlon.com/p2579430/k$765fde523b951660b1af44df05b14ff6/men-s-waterproof-mountain-walking-shoes-mh500-mid-brown-quechua-8618767.jpg?f=1920x0&format=auto", category: "Footwear" },
-//     { id: 12, name: "Sports Headband", price: "₱800", mainImage: "https://images-na.ssl-images-amazon.com/images/I/41CGqywZ8FL.jpg", category: "Accessories" },
-//     { id: 13, name: "Frisbee Gloves", price: "₱800", mainImage: "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQxNbEuv3_Dide9PBZmW4DUMTsV4nuTC0_s1Iou5V6EvyoVi15_Fb5NVKIIcwZa8jAaL7V3X1jBsjGxiJyDoLD5urYa8YFpAZHK7qrxZrec7lQSDH5_ECTq&usqp=CAE", category: "Accessories" },
-//     { id: 14, name: "Cap", price: "₱800", mainImage: "https://images-na.ssl-images-amazon.com/images/I/31RMx1LhG2L.jpg", category: "Accessories" },
-//     { id: 15, name: "Heart Rate Monitor", price: "₱800", mainImage: "https://static.wixstatic.com/media/2f0d26_ba4defcd2b734f34ab2351465c7026b7~mv2.jpg/v1/fill/w_560,h_420,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/2f0d26_ba4defcd2b734f34ab2351465c7026b7~mv2.jpg", category: "Wearables" },
-//     { id: 16, name: "XMetrics Pro Swim Tracker", price: "₱800", mainImage: "https://c4.iggcdn.com/indiegogo-media-prod-cld/image/upload/c_fill,g_auto,q_auto,f_auto,h_460,w_695/dtxd3bnk1ogxlzsfkqmu", category: "Wearables" },
-//     { id: 17, name: "Golf Club", price: "₱800", mainImage: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSJwCAWlqGYN5n5VtKB9Ho7Pwar7Pq4efivQI91oNsMSfNU7l9k1SDc6SYnYPK7jnzng91LCFf3fPL-IIuQt0KFIa8ZpHnyJ-ghGSYwHAGOKZZMCoGbbgAi&usqp=CAE", category: "Equipment" },
-//     { id: 18, name: "Sports Bag", price: "₱800", mainImage: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcT6B0xLSGZ6bW1_mPNGeUKFlfVoWZhTzXSC70zcqyQYa24XbwRrndegKwGoGoTE5YWwEg7fwCAqDHtGNZsGoeZcodnhgKJ4W9MV8FVO4nOt_-ko74NuTPUfMA", category: "Bags & Storage" },
-//     { id: 19, name: "Ball Stand", price: "₱800", mainImage: "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcR_VBavVf5msVPJlLkrNmRBndTIcab-Xaez8SK1RqgxFUtpk2_gEWTCrLzVv34V7AK337WmwZX5bYEUeMuyzKg0E8_g1B3_3zQxtFQ-98y45_CBZawaUcGL&usqp=CAE", category: "Bags & Storage" },
-//     { id: 20, name: "Disk Station", price: "₱800", mainImage: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTTV0gwlQrQE-kjq5f0cisndX4wZaMsSGA-_oJjVeuW8HtwEeMt4yT9xjGtRmu4vUQDhqzHeGDlzjIZXExNVdymH0kGvDQf9yPOOsIWnQN-q7F6FIUlLiVtbQ&usqp=CAE", category: "Bags & Storage" },
-//     { id: 21, name: "Kicking Net", price: "₱800", mainImage: "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRqIQbOg5WALxqHT7daLWnAKPhCozuTMrNN7Sk75NiDShn1T71GFcrpnQRz3271nJAa8xsSCzQLfqAok7md6dy76GcHfdxxouwdS-fTjwOR&usqp=CAE", category: "Facilities & Setup" },
-//     { id: 22, name: "Portable Basketball Net", price: "₱800", mainImage: "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcROZp2YLXcCZJ_8dyXgl5iDS0I6xUpJX7aDhg8tqdxdKHYwBNZWvaTUwY2bOasTIz3eTl6XldrWAGtGWpP9rdP9sU0Se2fKhRhW7ayawtdbPwRmn12hpt7Vs_zctbxPQ&usqp=CAE", category: "Facilities & Setup" },
-//   ];
-
-//   const [user, loading] = useAuthState(auth);
-//   const router = useRouter();
-
-//   useEffect(() => {
-//     if (!user && !loading) {
-//       router.push('/sign-in');
-//     }
-//   }, [user, loading]);
-
-//   return (
-//     <div className={styles.mainContainer}>
-//       <h2>Welcome to the Sports Store</h2>
-//       <h3>Featured Products</h3>
-//       <div className={styles.productList}>
-//         {products.map((product) => (
-//           <div key={product.id} className={styles.productCard}>
-//             <img src={product.mainImage} alt={product.name} className={styles.productImage} />
-//             <h4>{product.name}</h4>
-//             <p>{product.price}</p>
-//             <Link href={`/product/${product.id}`} className={styles.productLink}>View Product</Link>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default MainPage;
-
-
-
-
-// const [user, loading] = useAuthState(auth);
-// const router = useRouter();
-
-// useEffect(() => {
-//   if (!user && !loading) {
-//     router.push('/login');
-//   }
-// }, [user, loading]);
-
-
-
-
-
-
-
-
-
-
-
 "use client";
 import { useState, useEffect } from "react"
 import Link from "next/link"
@@ -159,8 +74,8 @@ useEffect(() => {
   sessionStorage.removeItem('user')
 
  } }>log out</button> */}
-  <section className={`text-white text-center py-5 ${styles.hero}`}>
-    <h1 className="text-4xl font-bold mb-2  ">Welcome to Our Sports Store!</h1>
+  <section className={`text-black text-center py-5 ${styles.hero}`}>
+    <h1 className="text-4xl font-bold mb-5  ">Welcome to Our Sports Store!</h1>
     
     <p className="text-lg pt-9">Your one-stop destination for all your sporting needs.</p>
 
@@ -210,11 +125,11 @@ useEffect(() => {
       
         {/* Middle Section - Popular Categories */}
         <section className={`  flex-1 mx-4 p-6 shadow-md rounded-lg m-5 ${styles.middle}`}>
-          <h2 className="text-2xl font-bold mb-4 text-white">Popular Categories</h2>
+          <h2 className="text-2xl font-bold mb-4 text-black">Popular Categories</h2>
           <div className={styles.categoryContainer}>
             {categories.map((category, index) => (
               <div key={index} className={styles.categoryCard}>
-                <h3 className="text-xl text-white font-semibold mb-4">{category}</h3>
+                <h3 className="text-xl text-black font-semibold mb-4">{category}</h3>
                 <div>
                   {category === "Apparel" || category === "Footwear" || category === "Accessories" 
                   || category === "Wearables" || category === "Equipment" || category === "Bags & Storage" || category === "Facilities & Setup"? (

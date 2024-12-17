@@ -39,12 +39,26 @@ const NavIcons = () => {
       <BiUser className="cursor-pointer" onClick={handleProfile}/>
       {isProfileOpen && (
         <div className='bg-white absolute p-4 rounded-md top-12 left-0 text-sm shadow-[0_3px_10px_rgb(0,0,0,0.2)] z-10'>
-            <Link href="" className="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-base">Profile</Link>
-            <div className='mt-2 cursor-pointer block px-4 py-2 text-gray-700 hover:bg-gray-100 text-base'>Settings</div>
-            <div className='mt-2 cursor-pointer block px-4 py-2 text-gray-700 hover:bg-gray-100 text-base'>Logout</div>
+            <Link href="" className="block px-4 py-2 text-gray-700 hover:bg-green-300 text-base rounded-xl">Profile</Link>
+            <div className='mt-2 cursor-pointer block px-4 py-2 text-gray-700 hover:bg-gray-200 text-base rounded-xl'>Settings</div>
+            <div className='mt-2 cursor-pointer block px-4 py-2 text-gray-700 hover:bg-red-400 text-base rounded-xl '>
+      <button
+        onClick={() => {
+          signOut(auth);
+          sessionStorage.removeItem('user');
+        }}
+        className="flex items-center "
+      >
+        <TbLogout className='mr-2 text-red-500 ' />
+        Logout
+      </button>
+    </div>
         </div>
       )}
-      <div className="relative cursor-pointer">
+
+
+      
+      <div className="relative cursor-pointer ">
         <ShowCart/> 
       </div> 
 

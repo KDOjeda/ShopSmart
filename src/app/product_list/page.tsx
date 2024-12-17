@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { products } from "../../../productdb/products";
 import ProductCard from "../products/ProductCard";
 import Link from "next/link";
+import styles from './mall.module.css'
 
 const ProductList = () => {
   const searchParams = useSearchParams();
@@ -36,21 +37,27 @@ const ProductList = () => {
     : filteredByCategory;
 
   return (
-    <div className="mt-24 p-8">
+    <div className={` ${styles.background} `}>
+      
       {/* Header with title */}
-      <header className="text-center mb-8">
-        <h1 className="text-4xl font-bold text-gray-800">Product Mall</h1>
-        <h2>
+      <section className={`${styles.hero}`}>
+      {/* <header className={`text-center mb-8  `}>
+        
+        
+      </header> */}
+      <h1 className={`text-4xl font-bold text-gray-800 ${styles.productMall} pt-4  `}>Product Mall</h1>
+      <h2 className="text-black pb-4">
           {category
             ? `Category: ${category}`
             : searchQuery
             ? `Search Results for: ${searchQuery}`
             : "All Products"}
         </h2>
-      </header>
+      </section>
+      
 
       {/* Category Filter Section */}
-      <section className="flex flex-wrap p-1 rounded-lg mt-1 sticky top-0 z-10 justify-center border-t border-gray-300 shadow-[inset_0_2px_10px_rgba(0,0,0,0.8)] bg-green-400">
+      <section className="flex flex-wrap p-1 rounded-lg mt-1 sticky top-0 z-10 justify-center border-t border-gray-300 shadow-[inset_0_2px_10px_rgba(0,0,0,0.8)] bg-white ">
         <ul className="flex flex-wrap justify-center space-x-6">
           {categories.map((category, index) => (
             <li key={index} className="text-gray-700 py-2">
